@@ -1,2991 +1,652 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mordida Burger | O sabor que fica</title>
-
-    <meta name="description"
-
-        content="Mordida Burger — hambúrguer artesanal, combos, batatas e bebidas. Faça seu pedido online.">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap"
-
-        rel="stylesheet">
+    <title>Mordida Burger</title>
 
     <style>
-
-        :root {
-
-            --preto: #080808;
-
-            --preto2: #101010;
-
-            --cinza: #181818;
-
-            --cinza2: #242424;
-
-            --amarelo: #ffbd18;
-
-            --amarelo2: #ff8a00;
-
-            --branco: #ffffff;
-
-            --texto: #e9e9e9;
-
-            --muted: #999999;
-
-            --verde: #25d366;
-
-        }
-
         * {
-
             margin: 0;
-
             padding: 0;
-
             box-sizing: border-box;
-
-        }
-
-        html {
-
             scroll-behavior: smooth;
-
         }
 
         body {
-
-            font-family: "Inter", sans-serif;
-
-            background: var(--preto);
-
-            color: var(--branco);
-
-            overflow-x: hidden;
-
+            font-family: Arial, Helvetica, sans-serif;
+            background: #101010;
+            color: white;
         }
-
-        a {
-
-            color: inherit;
-
-            text-decoration: none;
-
-        }
-
-        button,
-
-        a {
-
-            font-family: inherit;
-
-        }
-
-        /* HEADER */
 
         header {
-
-            position: fixed;
-
-            top: 0;
-
-            left: 0;
-
             width: 100%;
-
-            height: 76px;
-
-            z-index: 1000;
-
+            padding: 20px 7%;
+            background: #111111;
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
-            padding: 0 7%;
-
-            background: rgba(8, 8, 8, 0.85);
-
-            backdrop-filter: blur(14px);
-
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #292929;
         }
 
         .logo {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 10px;
-
-            font-size: 25px;
-
-            font-weight: 900;
-
-            letter-spacing: -1px;
-
-        }
-
-        .logo span {
-
-            color: var(--amarelo);
-
-        }
-
-        .logo-icon {
-
-            width: 42px;
-
-            height: 42px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 13px;
-
-            background: linear-gradient(135deg, var(--amarelo), var(--amarelo2));
-
-            color: #111;
-
-            font-size: 23px;
-
+            color: #f5b400;
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
         }
 
         nav {
-
             display: flex;
-
-            align-items: center;
-
-            gap: 32px;
-
+            gap: 25px;
         }
 
         nav a {
-
-            color: #cccccc;
-
-            font-size: 14px;
-
-            font-weight: 600;
-
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
             transition: 0.3s;
-
         }
 
         nav a:hover {
-
-            color: var(--amarelo);
-
+            color: #f5b400;
         }
 
-        .cart-button {
-
-            position: relative;
-
-            width: 48px;
-
-            height: 48px;
-
+        .botao {
+            display: inline-block;
+            background: #f5b400;
+            color: #111111;
+            padding: 14px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
             border: none;
-
-            border-radius: 14px;
-
-            background: var(--amarelo);
-
-            color: #111;
-
-            font-size: 21px;
-
             cursor: pointer;
-
+            transition: 0.3s;
         }
 
-        .cart-count {
-
-            position: absolute;
-
-            top: -6px;
-
-            right: -6px;
-
-            width: 21px;
-
-            height: 21px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: #ff3b30;
-
-            color: white;
-
-            font-size: 11px;
-
-            font-weight: 800;
-
+        .botao:hover {
+            background: #ffffff;
+            transform: translateY(-3px);
         }
-
-        /* HERO */
 
         .hero {
-
-            min-height: 780px;
-
-            padding: 130px 7% 70px;
-
-            display: grid;
-
-            grid-template-columns: 45% 55%;
-
-            align-items: center;
-
-            position: relative;
-
-            overflow: hidden;
-
-            background:
-
-                radial-gradient(circle at 80% 45%, rgba(255, 160, 0, 0.16), transparent 30%),
-
-                #080808;
-
-        }
-
-        .hero::before {
-
-            content: "";
-
-            position: absolute;
-
-            width: 650px;
-
-            height: 650px;
-
-            right: -250px;
-
-            top: 80px;
-
-            border-radius: 50%;
-
-            background: rgba(255, 189, 24, 0.08);
-
-            filter: blur(120px);
-
-            pointer-events: none;
-
-        }
-
-        .hero-content {
-
-            position: relative;
-
-            z-index: 2;
-
-            max-width: 570px;
-
-        }
-
-        .small-title,
-
-        .section-label {
-
-            color: var(--amarelo);
-
-            font-size: 12px;
-
-            font-weight: 800;
-
-            letter-spacing: 4px;
-
-            text-transform: uppercase;
-
-        }
-
-        .small-title {
-
-            margin-bottom: 17px;
-
-        }
-
-        .hero h1 {
-
-            font-family: "Bebas Neue", sans-serif;
-
-            font-size: clamp(65px, 8vw, 120px);
-
-            line-height: 0.84;
-
-            letter-spacing: 1px;
-
-        }
-
-        .hero h1 span {
-
-            color: var(--amarelo);
-
-        }
-
-        .hero-description {
-
-            color: #aaaaaa;
-
-            max-width: 490px;
-
-            line-height: 1.7;
-
-            margin: 28px 0;
-
-            font-size: 15px;
-
-        }
-
-        .hero-buttons {
-
+            min-height: 650px;
+            padding: 80px 7%;
             display: flex;
-
-            gap: 14px;
-
-            flex-wrap: wrap;
-
-        }
-
-        .btn {
-
-            display: inline-flex;
-
             align-items: center;
-
-            justify-content: center;
-
-            gap: 9px;
-
-            padding: 15px 23px;
-
-            border-radius: 12px;
-
-            font-size: 14px;
-
-            font-weight: 800;
-
-            border: none;
-
-            cursor: pointer;
-
-            transition: 0.3s;
-
+            justify-content: space-between;
+            gap: 40px;
+            background:
+                radial-gradient(circle at right, #3b2a00 0%, #101010 45%);
         }
 
-        .btn-primary {
-
-            background: var(--amarelo);
-
-            color: #111;
-
+        .hero-text {
+            max-width: 550px;
         }
 
-        .btn-primary:hover {
-
-            transform: translateY(-3px);
-
-            box-shadow: 0 12px 30px rgba(255, 189, 24, 0.25);
-
+        .hero-text span {
+            color: #f5b400;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
-        .btn-secondary {
-
-            background: #191919;
-
-            border: 1px solid #2c2c2c;
-
-            color: white;
-
+        .hero-text h1 {
+            font-size: 65px;
+            line-height: 1.05;
+            margin: 20px 0;
         }
 
-        .btn-secondary:hover {
+        .hero-text h1 strong {
+            color: #f5b400;
+        }
 
-            border-color: var(--amarelo);
-
+        .hero-text p {
+            color: #cccccc;
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 30px;
         }
 
         .hero-image {
-
-            position: relative;
-
+            width: 48%;
             display: flex;
-
-            align-items: center;
-
             justify-content: center;
-
-            min-width: 0;
-
-            z-index: 2;
-
+            align-items: center;
         }
 
-        .hero-image::before {
+        .burger-illustration {
+            width: 420px;
+            height: 300px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.6));
+        }
 
+        .bread-top {
+            width: 330px;
+            height: 100px;
+            background: linear-gradient(#eeb75d, #b96b20);
+            border-radius: 180px 180px 35px 35px;
+            position: relative;
+            z-index: 5;
+            box-shadow: inset 0 -12px rgba(100, 45, 5, 0.25);
+        }
+
+        .bread-top::before {
             content: "";
-
             position: absolute;
-
-            width: 540px;
-
-            height: 540px;
-
+            width: 15px;
+            height: 7px;
+            background: #ffe0a0;
             border-radius: 50%;
-
-            background: radial-gradient(
-
-                circle,
-
-                rgba(255, 189, 24, 0.20),
-
-                transparent 68%
-
-            );
-
-            z-index: -1;
-
+            top: 30px;
+            left: 70px;
+            transform: rotate(-20deg);
+            box-shadow:
+                60px -10px #ffe0a0,
+                125px 5px #ffe0a0,
+                180px -8px #ffe0a0;
         }
 
-        .hero-image img {
-
-            position: relative;
-
-            width: 125%;
-
-            max-width: 760px;
-
-            height: auto;
-
-            object-fit: contain;
-
-            filter:
-
-                drop-shadow(0 35px 25px rgba(0, 0, 0, 0.9))
-
-                drop-shadow(0 0 35px rgba(255, 175, 0, 0.12));
-
-            transform: rotate(-3deg);
-
-            animation: floatBurger 5s ease-in-out infinite;
-
-        }
-
-        @keyframes floatBurger {
-
-            0%,
-
-            100% {
-
-                transform: translateY(0) rotate(-3deg);
-
-            }
-
-            50% {
-
-                transform: translateY(-14px) rotate(-1deg);
-
-            }
-
-        }
-
-        .hero-tag {
-
-            position: absolute;
-
-            right: 3%;
-
-            bottom: 5%;
-
-            padding: 14px 18px;
-
-            background: rgba(20, 20, 20, 0.94);
-
-            border: 1px solid #303030;
-
-            border-radius: 15px;
-
-            z-index: 4;
-
-        }
-
-        .hero-tag strong {
-
-            display: block;
-
-            color: var(--amarelo);
-
-            font-size: 18px;
-
-        }
-
-        .hero-tag small {
-
-            color: #999999;
-
-        }
-
-        /* BARRA DE INFORMAÇÕES */
-
-        .info-bar {
-
-            padding: 20px 7%;
-
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 15px;
-
-            background: #101010;
-
-            border-top: 1px solid #202020;
-
-            border-bottom: 1px solid #202020;
-
-        }
-
-        .info-item {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 12px;
-
-            color: #bbbbbb;
-
-            font-size: 13px;
-
-        }
-
-        .info-icon {
-
-            width: 38px;
-
-            height: 38px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 11px;
-
-            background: #1c1c1c;
-
-            color: var(--amarelo);
-
-            font-size: 17px;
-
-        }
-
-        /* SEÇÕES */
-
-        section {
-
-            padding: 90px 7%;
-
-        }
-
-        .section-header {
-
-            margin-bottom: 38px;
-
-        }
-
-        .section-label {
-
-            font-size: 11px;
-
-            letter-spacing: 3px;
-
-            margin-bottom: 10px;
-
-        }
-
-        .section-title {
-
-            font-family: "Bebas Neue", sans-serif;
-
-            font-size: 58px;
-
-            line-height: 0.95;
-
-        }
-
-        .section-description {
-
-            color: #888888;
-
-            max-width: 520px;
-
-            margin-top: 13px;
-
-            line-height: 1.6;
-
-            font-size: 14px;
-
-        }
-
-        /* CATEGORIAS */
-
-        .categories {
-
-            display: flex;
-
-            gap: 10px;
-
-            overflow-x: auto;
-
-            padding-bottom: 10px;
-
-            margin-bottom: 35px;
-
-        }
-
-        .category {
-
-            white-space: nowrap;
-
-            padding: 11px 19px;
-
-            border: 1px solid #2b2b2b;
-
-            border-radius: 30px;
-
-            background: #141414;
-
-            color: #aaaaaa;
-
-            cursor: pointer;
-
-            font-weight: 700;
-
-            font-size: 13px;
-
-        }
-
-        .category.active,
-
-        .category:hover {
-
-            background: var(--amarelo);
-
-            color: #111111;
-
-            border-color: var(--amarelo);
-
-        }
-
-        /* PRODUTOS */
-
-        .products {
-
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 20px;
-
-        }
-
-        .product {
-
-            position: relative;
-
-            overflow: hidden;
-
-            background: #121212;
-
-            border: 1px solid #222222;
-
-            border-radius: 22px;
-
-            transition: 0.3s;
-
-        }
-
-        .product:hover {
-
-            transform: translateY(-6px);
-
-            border-color: #3a3a3a;
-
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-
-        }
-
-        .product-image {
-
-            position: relative;
-
-            height: 235px;
-
-            overflow: hidden;
-
-            background: #1b1b1b;
-
-        }
-
-        .product-image img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-
-            transition: 0.5s;
-
-        }
-
-        .product:hover .product-image img {
-
-            transform: scale(1.07);
-
-        }
-
-        .badge {
-
-            position: absolute;
-
-            top: 14px;
-
-            left: 14px;
-
-            z-index: 2;
-
-            padding: 7px 10px;
-
-            border-radius: 7px;
-
-            background: var(--amarelo);
-
-            color: #111111;
-
-            font-size: 10px;
-
-            font-weight: 900;
-
-            text-transform: uppercase;
-
-        }
-
-        .product-content {
-
-            padding: 20px;
-
-        }
-
-        .product-content h3 {
-
-            font-size: 18px;
-
-            margin-bottom: 8px;
-
-        }
-
-        .product-content p {
-
-            color: #888888;
-
-            font-size: 12px;
-
-            line-height: 1.6;
-
-            min-height: 40px;
-
-        }
-
-        .product-bottom {
-
-            margin-top: 18px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-        }
-
-        .price {
-
-            font-size: 20px;
-
-            font-weight: 900;
-
-        }
-
-        .add-button {
-
-            width: 43px;
-
-            height: 43px;
-
-            border: none;
-
-            border-radius: 12px;
-
-            background: var(--amarelo);
-
-            color: #111111;
-
-            font-size: 22px;
-
-            cursor: pointer;
-
-        }
-
-        /* DESTAQUE */
-
-        .highlight {
-
-            margin: 10px 7% 90px;
-
-            min-height: 380px;
-
-            display: flex;
-
-            align-items: center;
-
-            position: relative;
-
-            overflow: hidden;
-
-            border-radius: 30px;
-
-            background:
-
-                linear-gradient(
-
-                    90deg,
-
-                    #111111 20%,
-
-                    rgba(17, 17, 17, 0.85) 45%,
-
-                    rgba(17, 17, 17, 0.15)
-
-                ),
-
-                url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1600&q=85")
-
-                center/cover;
-
-        }
-
-        .highlight-content {
-
-            padding: 55px;
-
-            max-width: 570px;
-
-        }
-
-        .highlight-content p {
-
-            color: #cccccc;
-
-            line-height: 1.7;
-
-            margin: 15px 0 25px;
-
-            font-size: 14px;
-
-        }
-
-        /* SOBRE */
-
-        .about {
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 70px;
-
-            align-items: center;
-
-            background: #0e0e0e;
-
-        }
-
-        .about-image {
-
-            height: 460px;
-
-            overflow: hidden;
-
-            border-radius: 25px;
-
-        }
-
-        .about-image img {
-
-            width: 100%;
-
-            height: 100%;
-
-            object-fit: cover;
-
-        }
-
-        .about-text p {
-
-            color: #999999;
-
-            line-height: 1.8;
-
-            font-size: 14px;
-
-            margin: 18px 0;
-
-        }
-
-        .features {
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 15px;
-
-            margin-top: 25px;
-
-        }
-
-        .feature {
-
-            padding: 18px;
-
-            background: #171717;
-
-            border: 1px solid #242424;
-
-            border-radius: 15px;
-
-        }
-
-        .feature strong {
-
-            display: block;
-
-            color: var(--amarelo);
-
-            margin-bottom: 6px;
-
-        }
-
-        .feature span {
-
-            color: #888888;
-
-            font-size: 12px;
-
-        }
-
-        /* AVALIAÇÕES */
-
-        .reviews {
-
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 20px;
-
-        }
-
-        .review {
-
-            padding: 25px;
-
-            background: #131313;
-
-            border: 1px solid #242424;
-
+        .lettuce {
+            width: 350px;
+            height: 28px;
+            background: #4e9b2e;
             border-radius: 20px;
-
+            z-index: 4;
+            margin-top: -8px;
         }
 
-        .stars {
-
-            color: var(--amarelo);
-
-            letter-spacing: 3px;
-
-            margin-bottom: 18px;
-
+        .cheese {
+            width: 345px;
+            height: 35px;
+            background: #f5c400;
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 75% 70%, 55% 100%, 35% 70%, 15% 100%);
+            z-index: 3;
         }
 
-        .review p {
-
-            color: #aaaaaa;
-
-            font-size: 13px;
-
-            line-height: 1.7;
-
+        .meat {
+            width: 350px;
+            height: 62px;
+            background: linear-gradient(#75401e, #3b1c0d);
+            border-radius: 18px;
+            z-index: 2;
+            box-shadow: inset 0 8px rgba(255, 255, 255, 0.08);
         }
 
-        .customer {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
-
-            margin-top: 20px;
-
+        .bread-bottom {
+            width: 335px;
+            height: 48px;
+            background: linear-gradient(#d99036, #9c551d);
+            border-radius: 10px 10px 35px 35px;
+            z-index: 1;
         }
 
-        .avatar {
-
-            width: 42px;
-
-            height: 42px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: var(--amarelo);
-
-            color: #111111;
-
-            font-weight: 900;
-
+        .secao {
+            padding: 80px 7%;
         }
 
-        .customer strong {
-
-            display: block;
-
-            font-size: 13px;
-
-        }
-
-        .customer small {
-
-            color: #777777;
-
-        }
-
-        /* CTA */
-
-        .cta {
-
-            padding: 70px 7%;
-
+        .titulo {
             text-align: center;
-
-            background:
-
-                radial-gradient(circle at center, rgba(255, 189, 24, 0.14), transparent 45%),
-
-                #0c0c0c;
-
+            margin-bottom: 45px;
         }
 
-        .cta h2 {
-
-            font-family: "Bebas Neue", sans-serif;
-
-            font-size: 65px;
-
+        .titulo span {
+            color: #f5b400;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
         }
 
-        .cta p {
-
-            color: #888888;
-
-            margin: 10px auto 25px;
-
-            max-width: 500px;
-
+        .titulo h2 {
+            font-size: 40px;
+            margin-top: 10px;
         }
 
-        /* FOOTER */
+        .produtos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .produto {
+            background: #1c1c1c;
+            border: 1px solid #303030;
+            border-radius: 18px;
+            padding: 25px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .produto:hover {
+            transform: translateY(-8px);
+            border-color: #f5b400;
+        }
+
+        .produto-imagem {
+            width: 100%;
+            height: 150px;
+            background: #292929;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .produto h3 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .produto p {
+            color: #bbbbbb;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .preco {
+            display: block;
+            color: #f5b400;
+            font-size: 25px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .sobre {
+            background: #171717;
+            text-align: center;
+        }
+
+        .sobre p {
+            max-width: 750px;
+            margin: auto;
+            color: #cccccc;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        .contato {
+            text-align: center;
+        }
+
+        .contato p {
+            color: #cccccc;
+            margin: 15px 0 25px;
+            line-height: 1.6;
+        }
 
         footer {
-
-            padding: 55px 7% 25px;
-
             background: #080808;
-
-            border-top: 1px solid #202020;
-
-        }
-
-        .footer-grid {
-
-            display: grid;
-
-            grid-template-columns: 2fr 1fr 1fr;
-
-            gap: 40px;
-
-        }
-
-        .footer-description {
-
-            color: #777777;
-
-            max-width: 360px;
-
-            font-size: 13px;
-
-            line-height: 1.7;
-
-            margin-top: 15px;
-
-        }
-
-        footer h4 {
-
-            margin-bottom: 16px;
-
-        }
-
-        footer ul {
-
-            list-style: none;
-
-        }
-
-        footer li {
-
-            color: #777777;
-
-            font-size: 13px;
-
-            margin-bottom: 10px;
-
-        }
-
-        .footer-bottom {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            margin-top: 40px;
-
-            padding-top: 20px;
-
-            border-top: 1px solid #1e1e1e;
-
-            color: #555555;
-
-            font-size: 11px;
-
-        }
-
-        /* CARRINHO */
-
-        .cart-overlay {
-
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 2000;
-
-            background: rgba(0, 0, 0, 0.7);
-
-            backdrop-filter: blur(4px);
-
-            opacity: 0;
-
-            visibility: hidden;
-
-            transition: 0.3s;
-
-        }
-
-        .cart-overlay.open {
-
-            opacity: 1;
-
-            visibility: visible;
-
-        }
-
-        .cart {
-
-            position: absolute;
-
-            right: 0;
-
-            top: 0;
-
-            width: min(430px, 100%);
-
-            height: 100%;
-
-            display: flex;
-
-            flex-direction: column;
-
-            background: #111111;
-
-            border-left: 1px solid #292929;
-
-            transform: translateX(100%);
-
-            transition: 0.35s;
-
-        }
-
-        .cart-overlay.open .cart {
-
-            transform: translateX(0);
-
-        }
-
-        .cart-header {
-
-            height: 80px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            padding: 0 25px;
-
-            border-bottom: 1px solid #252525;
-
-        }
-
-        .cart-header h2 {
-
-            font-family: "Bebas Neue", sans-serif;
-
-            font-size: 32px;
-
-        }
-
-        .close-cart {
-
-            width: 40px;
-
-            height: 40px;
-
-            border: none;
-
-            border-radius: 10px;
-
-            background: #202020;
-
-            color: white;
-
-            cursor: pointer;
-
-            font-size: 20px;
-
-        }
-
-        .cart-items {
-
-            flex: 1;
-
-            overflow-y: auto;
-
-            padding: 20px;
-
-        }
-
-        .empty-cart {
-
+            padding: 25px 7%;
             text-align: center;
-
-            padding-top: 80px;
-
-            color: #666666;
-
+            color: #aaaaaa;
+            border-top: 1px solid #292929;
         }
 
-        .empty-cart div {
-
-            font-size: 45px;
-
-            margin-bottom: 15px;
-
-        }
-
-        .cart-item {
-
-            display: flex;
-
-            gap: 12px;
-
-            padding: 14px 0;
-
-            border-bottom: 1px solid #222222;
-
-        }
-
-        .cart-item img {
-
-            width: 65px;
-
-            height: 65px;
-
-            border-radius: 12px;
-
-            object-fit: cover;
-
-        }
-
-        .cart-item-info {
-
-            flex: 1;
-
-        }
-
-        .cart-item-info strong {
-
-            display: block;
-
-            font-size: 13px;
-
-            margin-bottom: 5px;
-
-        }
-
-        .cart-item-info span {
-
-            color: var(--amarelo);
-
-            font-size: 13px;
-
-            font-weight: 800;
-
-        }
-
-        .quantity {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 8px;
-
-            margin-top: 8px;
-
-        }
-
-        .quantity button {
-
-            width: 25px;
-
-            height: 25px;
-
-            border: 1px solid #333333;
-
-            border-radius: 6px;
-
-            background: #1b1b1b;
-
-            color: white;
-
-            cursor: pointer;
-
-        }
-
-        .quantity span {
-
-            color: white;
-
-            font-size: 12px;
-
-        }
-
-        .cart-footer {
-
-            padding: 22px;
-
-            border-top: 1px solid #252525;
-
-        }
-
-        .total {
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            margin-bottom: 18px;
-
-        }
-
-        .total span {
-
-            color: #888888;
-
-        }
-
-        .total strong {
-
-            color: var(--amarelo);
-
-            font-size: 23px;
-
-        }
-
-        .checkout {
-
-            width: 100%;
-
-        }
-
-        /* WHATSAPP */
-
-        .whatsapp {
-
+        .whatsapp-float {
             position: fixed;
-
             right: 22px;
-
             bottom: 22px;
-
-            width: 57px;
-
-            height: 57px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: var(--verde);
-
+            width: 62px;
+            height: 62px;
+            background: #25d366;
             color: white;
-
-            font-size: 26px;
-
-            z-index: 900;
-
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 31px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            z-index: 2000;
+            transition: 0.3s;
         }
 
-        /* RESPONSIVO */
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #1ebe5d;
+        }
 
-        @media (max-width: 950px) {
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 60px;
+            }
 
-            header {
+            .hero-text h1 {
+                font-size: 48px;
+            }
 
-                padding: 0 5%;
+            .hero-image {
+                width: 100%;
+            }
 
+            .produtos {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             nav {
-
-                display: none;
-
-            }
-
-            .hero {
-
-                grid-template-columns: 1fr;
-
-                min-height: auto;
-
-                padding: 130px 6% 60px;
-
-                text-align: center;
-
-            }
-
-            .hero-content {
-
-                display: flex;
-
-                flex-direction: column;
-
-                align-items: center;
-
-            }
-
-            .hero-description {
-
-                max-width: 600px;
-
-            }
-
-            .hero-image {
-
-                margin-top: 45px;
-
-            }
-
-            .hero-image img {
-
-                width: 100%;
-
-                max-width: 620px;
-
-            }
-
-            .products {
-
-                grid-template-columns: repeat(2, 1fr);
-
-            }
-
-            .about {
-
-                grid-template-columns: 1fr;
-
-                gap: 40px;
-
-            }
-
-            .about-image {
-
-                height: 350px;
-
-            }
-
-            .reviews {
-
-                grid-template-columns: 1fr;
-
-            }
-
-            .footer-grid {
-
-                grid-template-columns: 1fr 1fr;
-
-            }
-
-        }
-
-        @media (max-width: 650px) {
-
-            header {
-
-                height: 68px;
-
-            }
-
-            .logo {
-
-                font-size: 20px;
-
-            }
-
-            .logo-icon {
-
-                width: 38px;
-
-                height: 38px;
-
-            }
-
-            .hero {
-
-                padding-top: 105px;
-
-            }
-
-            .hero h1 {
-
-                font-size: 70px;
-
-            }
-
-            .hero-description {
-
-                font-size: 13px;
-
-            }
-
-            .hero-image {
-
-                margin-top: 20px;
-
-            }
-
-            .hero-image img {
-
-                width: 115%;
-
-                max-width: 520px;
-
-            }
-
-            .hero-image::before {
-
-                width: 300px;
-
-                height: 300px;
-
-            }
-
-            .hero-tag {
-
-                right: 0;
-
-                bottom: 0;
-
-                transform: scale(0.85);
-
-            }
-
-            .info-bar {
-
-                grid-template-columns: 1fr;
-
                 gap: 12px;
-
-                padding: 18px 6%;
-
             }
-
-            .info-item {
-
-                justify-content: flex-start;
-
-            }
-
-            section {
-
-                padding: 65px 6%;
-
-            }
-
-            .section-title {
-
-                font-size: 48px;
-
-            }
-
-            .products {
-
-                grid-template-columns: 1fr;
-
-            }
-
-            .product-image {
-
-                height: 250px;
-
-            }
-
-            .highlight {
-
-                margin: 0 6% 65px;
-
-                min-height: 450px;
-
-                background:
-
-                    linear-gradient(180deg, rgba(17, 17, 17, 0.15), #111111 75%),
-
-                    url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=85")
-
-                    center/cover;
-
-                align-items: flex-end;
-
-            }
-
-            .highlight-content {
-
-                padding: 30px;
-
-            }
-
-            .highlight-content .section-title {
-
-                font-size: 53px;
-
-            }
-
-            .features {
-
-                grid-template-columns: 1fr;
-
-            }
-
-            .footer-grid {
-
-                grid-template-columns: 1fr;
-
-            }
-
-            .footer-bottom {
-
-                flex-direction: column;
-
-                gap: 8px;
-
-            }
-
-            .cta h2 {
-
-                font-size: 52px;
-
-            }
-
         }
 
-    </style>
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
 
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 60px 5%;
+            }
+
+            .hero-text h1 {
+                font-size: 40px;
+            }
+
+            .hero-text p {
+                font-size: 16px;
+            }
+
+            .burger-illustration {
+                transform: scale(0.75);
+                margin: -35px 0;
+            }
+
+            .produtos {
+                grid-template-columns: 1fr;
+            }
+
+            .titulo h2 {
+                font-size: 32px;
+            }
+
+            .secao {
+                padding: 60px 5%;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- HEADER -->
-
     <header>
-
-        <a href="#inicio" class="logo">
-
-            <div class="logo-icon">🍔</div>
-
-            MORDIDA<span>.</span>
-
-        </a>
+        <a href="#inicio" class="logo">Mordida Burger 🍔</a>
 
         <nav>
-
             <a href="#inicio">Início</a>
-
             <a href="#cardapio">Cardápio</a>
-
-            <a href="#sobre">Sobre nós</a>
-
-            <a href="#avaliacoes">Avaliações</a>
-
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
         </nav>
 
-        <button class="cart-button" onclick="openCart()">
-
-            🛒
-
-            <span class="cart-count" id="cartCount">0</span>
-
-        </button>
-
+        <a
+            class="botao"
+            href="https://wa.me/5587991699046?text=Olá!%20Quero%20fazer%20um%20pedido."
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Pedir agora
+        </a>
     </header>
 
-    <main>
-
-        <!-- HERO -->
-
-        <section class="hero" id="inicio">
-
-            <div class="hero-content">
-
-                <div class="small-title">
-
-                    Hambúrguer artesanal
-
-                </div>
-
-                <h1>
-
-                    MORDEU.<br>
-
-                    <span>APAIXONOU.</span>
-
-                </h1>
-
-                <p class="hero-description">
-
-                    Hambúrguer artesanal feito para quem não aceita qualquer lanche.
-
-                    Ingredientes selecionados, muito sabor e aquela mordida que você não esquece.
-
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#cardapio" class="btn btn-primary">
-
-                        🍔 VER CARDÁPIO
-
-                    </a>
-
-                    <a href="#sobre" class="btn btn-secondary">
-
-                        CONHEÇA A GENTE
-
-                    </a>
-
-                </div>
-
-            </div>
-
-            <div class="hero-image">
-
-                <img
-
-                    src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1600&q=95"
-
-                    alt="Hambúrguer artesanal grande">
-
-                <div class="hero-tag">
-
-                    <strong>4.9 ★</strong>
-
-                    <small>+1.200 pedidos</small>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- INFORMAÇÕES -->
-
-        <div class="info-bar">
-
-            <div class="info-item">
-
-                <div class="info-icon">⚡</div>
-
-                <span>Entrega rápida</span>
-
-            </div>
-
-            <div class="info-item">
-
-                <div class="info-icon">🥩</div>
-
-                <span>Ingredientes selecionados</span>
-
-            </div>
-
-            <div class="info-item">
-
-                <div class="info-icon">❤️</div>
-
-                <span>Feito com carinho</span>
-
-            </div>
-
-        </div>
-
-        <!-- CARDÁPIO -->
-
-        <section id="cardapio">
-
-            <div class="section-header">
-
-                <div class="section-label">
-
-                    Nosso cardápio
-
-                </div>
-
-                <h2 class="section-title">
-
-                    ESCOLHA SUA<br>
-
-                    PRÓXIMA MORDIDA
-
-                </h2>
-
-                <p class="section-description">
-
-                    Do clássico ao especial da casa. Escolha seu favorito e monte seu pedido.
-
-                </p>
-
-            </div>
-
-            <div class="categories">
-
-                <button class="category active" onclick="filterProducts('todos', this)">
-
-                    Todos
-
-                </button>
-
-                <button class="category" onclick="filterProducts('burgers', this)">
-
-                    🍔 Burgers
-
-                </button>
-
-                <button class="category" onclick="filterProducts('combos', this)">
-
-                    🍟 Combos
-
-                </button>
-
-                <button class="category" onclick="filterProducts('porcoes', this)">
-
-                    🍟 Porções
-
-                </button>
-
-                <button class="category" onclick="filterProducts('bebidas', this)">
-
-                    🥤 Bebidas
-
-                </button>
-
-            </div>
-
-            <div class="products" id="products">
-
-                <article class="product" data-category="burgers">
-
-                    <div class="product-image">
-
-                        <span class="badge">Mais pedido</span>
-
-                        <img
-
-                            src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=85"
-
-                            alt="Mordida Clássico">
-
-                    </div>
-
-                    <div class="product-content">
-
-                        <h3>Mordida Clássico</h3>
-
-                        <p>
-
-                            Blend artesanal, queijo cheddar, alface,
-
-                            tomate e molho especial da casa.
-
-                        </p>
-
-                        <div class="product-bottom">
-
-                            <div class="price">
-
-                                R$ 24,90
-
-                            </div>
-
-                            <button class="add-button"
-
-                                onclick="addToCart('Mordida Clássico', 24.90, 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=300&q=80')">
-
-                                +
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-                <article class="product" data-category="burgers">
-
-                    <div class="product-image">
-
-                        <span class="badge">Especial</span>
-
-                        <img
-
-                            src="https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=800&q=85"
-
-                            alt="Mordida Bacon">
-
-                    </div>
-
-                    <div class="product-content">
-
-                        <h3>Mordida Bacon</h3>
-
-                        <p>
-
-                            Blend artesanal, cheddar cremoso,
-
-                            bacon crocante e molho barbecue.
-
-                        </p>
-
-                        <div class="product-bottom">
-
-                            <div class="price">
-
-                                R$ 29,90
-
-                            </div>
-
-                            <button class="add-button"
-
-                                onclick="addToCart('Mordida Bacon', 29.90, 'https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=300&q=80')">
-
-                                +
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-                <article class="product" data-category="burgers">
-
-                    <div class="product-image">
-
-                        <img
-
-                            src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=800&q=85"
-
-                            alt="Mordida Duplo">
-
-                    </div>
-
-                    <div class="product-content">
-
-                        <h3>Mordida Duplo</h3>
-
-                        <p>
-
-                            Dois blends artesanais, cheddar,
-
-                            cebola caramelizada e molho especial.
-
-                        </p>
-
-                        <div class="product-bottom">
-
-                            <div class="price">
-
-                                R$ 34,90
-
-                            </div>
-
-                            <button class="add-button"
-
-                                onclick="addToCart('Mordida Duplo', 34.90, 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=300&q=80')">
-
-                                +
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-                <article class="product" data-category="combos">
-
-                    <div class="product-image">
-
-                        <span class="badge">Combo</span>
-
-                        <img
-
-                            src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=800&q=85"
-
-                            alt="Combo Mordida">
-
-                    </div>
-
-                    <div class="product-content">
-
-                        <h3>Combo Mordida</h3>
-
-                        <p>
-
-                            Mordida Clássico + batata crocante
-
-                            + refrigerante gelado.
-
-                        </p>
-
-                        <div class="product-bottom">
-
-                            <div class="price">
-
-                                R$ 34,90
-
-                            </div>
-
-                            <button class="add-button"
-
-                                onclick="addToCart('Combo Mordida', 34.90, 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=300&q=80')">
-
-                                +
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-                <article class="product" data-category="porcoes">
-
-                    <div class="product-image">
-
-                        <img
-
-                            src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=85"
-
-                            alt="Batata especial">
-
-                    </div>
-
-                    <div class="product-content">
-
-                        <h3>Batata Especial</h3>
-
-                        <p>
-
-                            Batata crocante com cheddar cremoso
-
-                            e bacon.
-
-                        </p>
-
-                        <div class="product-bottom">
-
-                            <div class="price">
-
-                                R$ 19,90
-
-                            </div>
-
-                            <button class="add-button"
-
-                                onclick="addToCart('Batata Especial', 19.90, 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=300&q=80')">
-
-                                +
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-                <article class="product" data-category="bebidas">
-
-                    <div class="product-image">
-
-                        <img
-
-                            src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=800&q=85"
-
-                            alt="Refrigerante">
-
-                    </div>
-
-                    <div class="product-content">
-
-                        <h3>Refri Gelado</h3>
-
-                        <p>
-
-                            Refrigerante bem gelado para acompanhar
-
-                            sua Mordida.
-
-                        </p>
-
-                        <div class="product-bottom">
-
-                            <div class="price">
-
-                                R$ 7,00
-
-                            </div>
-
-                            <button class="add-button"
-
-                                onclick="addToCart('Refri Gelado', 7.00, 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=300&q=80')">
-
-                                +
-
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-        <!-- DESTAQUE -->
-
-        <div class="highlight">
-
-            <div class="highlight-content">
-
-                <div class="section-label">
-
-                    O favorito da casa
-
-                </div>
-
-                <h2 class="section-title">
-
-                    MORDEU,<br>
-
-                    FEDEROU.
-
-                </h2>
-
-                <p>
-
-                    Aquele burger caprichado, cheio de queijo,
-
-                    ingredientes frescos e muito sabor.
-
-                    É impossível comer uma vez só.
-
-                </p>
-
-                <a href="#cardapio" class="btn btn-primary">
-
-                    QUERO EXPERIMENTAR 🍔
-
-                </a>
-
-            </div>
-
-        </div>
-
-        <!-- SOBRE -->
-
-        <section class="about" id="sobre">
-
-            <div class="about-image">
-
-                <img
-
-                    src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=85"
-
-                    alt="Hambúrguer artesanal">
-
-            </div>
-
-            <div class="about-text">
-
-                <div class="section-label">
-
-                    Sobre a Mordida
-
-                </div>
-
-                <h2 class="section-title">
-
-                    FEITO PRA<br>
-
-                    VOCÊ REPETIR
-
-                </h2>
-
-                <p>
-
-                    A Mordida nasceu da vontade de transformar um simples
-
-                    hambúrguer em uma experiência de verdade.
-
-                </p>
-
-                <p>
-
-                    Cada burger é preparado na hora, com ingredientes
-
-                    selecionados e muito cuidado em cada detalhe.
-
-                </p>
-
-                <div class="features">
-
-                    <div class="feature">
-
-                        <strong>🥩 Blend artesanal</strong>
-
-                        <span>Carne preparada especialmente para nossos burgers.</span>
-
-                    </div>
-
-                    <div class="feature">
-
-                        <strong>🧀 Queijo de verdade</strong>
-
-                        <span>Cheddar cremoso e muito sabor.</span>
-
-                    </div>
-
-                    <div class="feature">
-
-                        <strong>🔥 Preparado na hora</strong>
-
-                        <span>Seu pedido feito especialmente para você.</span>
-
-                    </div>
-
-                    <div class="feature">
-
-                        <strong>❤️ Muito sabor</strong>
-
-                        <span>Receitas pensadas para você querer repetir.</span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- AVALIAÇÕES -->
-
-        <section id="avaliacoes">
-
-            <div class="section-header">
-
-                <div class="section-label">
-
-                    Quem prova, aprova
-
-                </div>
-
-                <h2 class="section-title">
-
-                    O QUE ESTÃO<br>
-
-                    FALANDO
-
-                </h2>
-
-            </div>
-
-            <div class="reviews">
-
-                <div class="review">
-
-                    <div class="stars">
-
-                        ★★★★★
-
-                    </div>
-
-                    <p>
-
-                        “Simplesmente maravilhoso! O hambúrguer chegou
-
-                        quentinho e muito bem montado. Já quero pedir de novo.”
-
-                    </p>
-
-                    <div class="customer">
-
-                        <div class="avatar">A</div>
-
-                        <div>
-
-                            <strong>Ana Clara</strong>
-
-                            <small>Cliente</small>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="review">
-
-                    <div class="stars">
-
-                        ★★★★★
-
-                    </div>
-
-                    <p>
-
-                        “O bacon é absurdo de bom. A batata também é
-
-                        maravilhosa. Virou meu lugar favorito.”
-
-                    </p>
-
-                    <div class="customer">
-
-                        <div class="avatar">M</div>
-
-                        <div>
-
-                            <strong>Mateus</strong>
-
-                            <small>Cliente</small>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="review">
-
-                    <div class="stars">
-
-                        ★★★★★
-
-                    </div>
-
-                    <p>
-
-                        “Atendimento ótimo, preço justo e o lanche
-
-                        é simplesmente perfeito.”
-
-                    </p>
-
-                    <div class="customer">
-
-                        <div class="avatar">J</div>
-
-                        <div>
-
-                            <strong>Juliana</strong>
-
-                            <small>Cliente</small>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- CTA -->
-
-        <section class="cta">
-
-            <div class="section-label">
-
-                Está esperando o quê?
-
-            </div>
-
-            <h2>
-
-                SUA FOME<br>
-
-                MERECE ISSO.
-
-            </h2>
+    <section class="hero" id="inicio">
+
+        <div class="hero-text">
+            <span>O sabor que dá vontade de repetir</span>
+
+            <h1>
+                Morde.<br>
+                <strong>Saboreia.</strong><br>
+                Repete.
+            </h1>
 
             <p>
-
-                Escolha seu burger favorito e faça seu pedido agora.
-
+                Hambúrguer artesanal, ingredientes selecionados
+                e muito sabor em cada mordida.
             </p>
 
-            <a href="#cardapio" class="btn btn-primary">
-
-                🍔 PEDIR AGORA
-
+            <a
+                class="botao"
+                href="https://wa.me/5587991699046?text=Olá!%20Quero%20ver%20o%20cardápio."
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Ver cardápio
             </a>
+        </div>
 
-        </section>
+        <div class="hero-image">
+            <div class="burger-illustration">
+                <div class="bread-top"></div>
+                <div class="lettuce"></div>
+                <div class="cheese"></div>
+                <div class="meat"></div>
+                <div class="bread-bottom"></div>
+            </div>
+        </div>
 
-    </main>
+    </section>
 
-    <!-- FOOTER -->
+    <section class="secao" id="cardapio">
 
-    <footer>
+        <div class="titulo">
+            <span>Nosso cardápio</span>
+            <h2>Escolha sua mordida</h2>
+        </div>
 
-        <div class="footer-grid">
+        <div class="produtos">
 
-            <div>
+            <div class="produto">
+                <div class="produto-imagem">🍔</div>
 
-                <a href="#inicio" class="logo">
+                <h3>Classic Burger</h3>
 
-                    <div class="logo-icon">🍔</div>
-
-                    MORDIDA<span>.</span>
-
-                </a>
-
-                <p class="footer-description">
-
-                    Hambúrguer artesanal, ingredientes selecionados
-
-                    e muito sabor. A mordida que você estava procurando.
-
+                <p>
+                    Pão macio, hambúrguer artesanal,
+                    queijo, alface e molho especial.
                 </p>
 
+                <span class="preco">R$ 18,90</span>
+
+                <button
+                    class="botao"
+                    onclick="fazerPedido('Classic Burger', '18,90')"
+                >
+                    Pedir
+                </button>
             </div>
 
-            <div>
+            <div class="produto">
+                <div class="produto-imagem">🍔</div>
 
-                <h4>Links</h4>
+                <h3>Cheese Bacon</h3>
 
-                <ul>
+                <p>
+                    Hambúrguer artesanal, queijo derretido,
+                    bacon crocante e molho da casa.
+                </p>
 
-                    <li><a href="#inicio">Início</a></li>
+                <span class="preco">R$ 22,90</span>
 
-                    <li><a href="#cardapio">Cardápio</a></li>
-
-                    <li><a href="#sobre">Sobre nós</a></li>
-
-                    <li><a href="#avaliacoes">Avaliações</a></li>
-
-                </ul>
-
+                <button
+                    class="botao"
+                    onclick="fazerPedido('Cheese Bacon', '22,90')"
+                >
+                    Pedir
+                </button>
             </div>
 
-            <div>
+            <div class="produto">
+                <div class="produto-imagem">🍔</div>
 
-                <h4>Funcionamento</h4>
+                <h3>Duplo Mordida</h3>
 
-                <ul>
+                <p>
+                    Dois hambúrgueres, queijo em dobro,
+                    molho especial e pão tostado.
+                </p>
 
-                    <li>Terça a Domingo</li>
+                <span class="preco">R$ 27,90</span>
 
-                    <li>18h às 23h</li>
+                <button
+                    class="botao"
+                    onclick="fazerPedido('Duplo Mordida', '27,90')"
+                >
+                    Pedir
+                </button>
+            </div>
 
-                    <li>📍 Sua cidade - PE</li>
+            <div class="produto">
+                <div class="produto-imagem">🍟</div>
 
-                    <li>📲 (00) 00000-0000</li>
+                <h3>Batata Frita</h3>
 
-                </ul>
+                <p>
+                    Batatas crocantes por fora,
+                    macias por dentro e bem temperadas.
+                </p>
 
+                <span class="preco">R$ 10,00</span>
+
+                <button
+                    class="botao"
+                    onclick="fazerPedido('Batata Frita', '10,00')"
+                >
+                    Pedir
+                </button>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">🥤</div>
+
+                <h3>Refrigerante</h3>
+
+                <p>
+                    Bebida gelada para acompanhar
+                    seu hambúrguer favorito.
+                </p>
+
+                <span class="preco">R$ 6,00</span>
+
+                <button
+                    class="botao"
+                    onclick="fazerPedido('Refrigerante', '6,00')"
+                >
+                    Pedir
+                </button>
+            </div>
+
+            <div class="produto">
+                <div class="produto-imagem">🍫</div>
+
+                <h3>Sobremesa</h3>
+
+                <p>
+                    Uma sobremesa deliciosa para
+                    finalizar seu pedido.
+                </p>
+
+                <span class="preco">R$ 9,90</span>
+
+                <button
+                    class="botao"
+                    onclick="fazerPedido('Sobremesa', '9,90')"
+                >
+                    Pedir
+                </button>
             </div>
 
         </div>
+    </section>
 
-        <div class="footer-bottom">
+    <section class="secao sobre" id="sobre">
 
-            <span>
-
-                © 2026 Mordida Burger. Todos os direitos reservados.
-
-            </span>
-
-            <span>
-
-                Feito com 🍔
-
-            </span>
-
+        <div class="titulo">
+            <span>Sobre nós</span>
+            <h2>Feito para matar sua fome</h2>
         </div>
 
+        <p>
+            Na Mordida Burger, cada hambúrguer é preparado com carinho,
+            ingredientes selecionados e muito sabor. Nosso objetivo é
+            oferecer uma experiência deliciosa do primeiro ao último pedaço.
+        </p>
+
+    </section>
+
+    <section class="secao contato" id="contato">
+
+        <div class="titulo">
+            <span>Faça seu pedido</span>
+            <h2>Fale com a Mordida Burger</h2>
+        </div>
+
+        <p>
+            Clique no botão abaixo e faça seu pedido diretamente pelo WhatsApp.
+        </p>
+
+        <a
+            class="botao"
+            href="https://wa.me/5587991699046?text=Olá!%20Quero%20fazer%20um%20pedido%20na%20Mordida%20Burger."
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Pedir pelo WhatsApp
+        </a>
+
+    </section>
+
+    <footer>
+        <p>
+            © 2026 Mordida Burger. Todos os direitos reservados.
+        </p>
     </footer>
 
-    <!-- CARRINHO -->
-
-    <div class="cart-overlay" id="cartOverlay" onclick="closeCartOutside(event)">
-
-        <div class="cart">
-
-            <div class="cart-header">
-
-                <h2>SEU PEDIDO</h2>
-
-                <button class="close-cart" onclick="closeCart()">
-
-                    ×
-
-                </button>
-
-            </div>
-
-            <div class="cart-items" id="cartItems">
-
-                <div class="empty-cart">
-
-                    <div>🛒</div>
-
-                    <p>
-
-                        Seu carrinho está vazio.
-
-                    </p>
-
-                    <small>
-
-                        Escolha alguma delícia no cardápio!
-
-                    </small>
-
-                </div>
-
-            </div>
-
-            <div class="cart-footer">
-
-                <div class="total">
-
-                    <span>Total</span>
-
-                    <strong id="cartTotal">
-
-                        R$ 0,00
-
-                    </strong>
-
-                </div>
-
-                <button class="btn btn-primary checkout" onclick="checkout()">
-
-                    PEDIR PELO WHATSAPP 📲
-
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <!-- WHATSAPP -->
-
     <a
-
-        class="whatsapp"
-
-        href="https://wa.me/5500000000000"
-
+        class="whatsapp-float"
+        href="https://wa.me/5587991699046?text=Olá!%20Quero%20fazer%20um%20pedido."
         target="_blank"
-
-        title="Fale conosco pelo WhatsApp">
-
-        ☎
-
+        rel="noopener noreferrer"
+        aria-label="Falar com a Mordida Burger pelo WhatsApp"
+    >
+        💬
     </a>
 
     <script>
-
-        let cart = [];
-
-        function addToCart(name, price, image) {
-
-            const existing = cart.find(item => item.name === name);
-
-            if (existing) {
-
-                existing.quantity++;
-
-            } else {
-
-                cart.push({
-
-                    name: name,
-
-                    price: price,
-
-                    image: image,
-
-                    quantity: 1
-
-                });
-
-            }
-
-            updateCart();
-
-            openCart();
-
-        }
-
-        function updateCart() {
-
-            const container = document.getElementById("cartItems");
-
-            const count = document.getElementById("cartCount");
-
-            const totalElement = document.getElementById("cartTotal");
-
-            if (cart.length === 0) {
-
-                container.innerHTML = `
-
-                    <div class="empty-cart">
-
-                        <div>🛒</div>
-
-                        <p>Seu carrinho está vazio.</p>
-
-                        <small>Escolha alguma delícia no cardápio!</small>
-
-                    </div>
-
-                `;
-
-                count.textContent = "0";
-
-                totalElement.textContent = "R$ 0,00";
-
-                return;
-
-            }
-
-            let total = 0;
-
-            let quantityTotal = 0;
-
-            container.innerHTML = "";
-
-            cart.forEach((item, index) => {
-
-                total += item.price * item.quantity;
-
-                quantityTotal += item.quantity;
-
-                container.innerHTML += `
-
-                    <div class="cart-item">
-
-                        <img src="${item.image}" alt="${item.name}">
-
-                        <div class="cart-item-info">
-
-                            <strong>${item.name}</strong>
-
-                            <span>
-
-                                R$ ${(item.price * item.quantity)
-
-                                    .toFixed(2)
-
-                                    .replace(".", ",")}
-
-                            </span>
-
-                            <div class="quantity">
-
-                                <button onclick="changeQuantity(${index}, -1)">
-
-                                    −
-
-                                </button>
-
-                                <span>${item.quantity}</span>
-
-                                <button onclick="changeQuantity(${index}, 1)">
-
-                                    +
-
-                                </button>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                `;
-
-            });
-
-            count.textContent = quantityTotal;
-
-            totalElement.textContent =
-
-                "R$ " + total.toFixed(2).replace(".", ",");
-
-        }
-
-        function changeQuantity(index, amount) {
-
-            cart[index].quantity += amount;
-
-            if (cart[index].quantity <= 0) {
-
-                cart.splice(index, 1);
-
-            }
-
-            updateCart();
-
-        }
-
-        function openCart() {
-
-            document
-
-                .getElementById("cartOverlay")
-
-                .classList.add("open");
-
-            document.body.style.overflow = "hidden";
-
-        }
-
-        function closeCart() {
-
-            document
-
-                .getElementById("cartOverlay")
-
-                .classList.remove("open");
-
-            document.body.style.overflow = "";
-
-        }
-
-        function closeCartOutside(event) {
-
-            if (event.target.id === "cartOverlay") {
-
-                closeCart();
-
-            }
-
-        }
-
-        function checkout() {
-
-            if (cart.length === 0) {
-
-                alert("Seu carrinho está vazio! 🍔");
-
-                return;
-
-            }
-
-            let message = "🍔 *NOVO PEDIDO - MORDIDA BURGER*%0A%0A";
-
-            let total = 0;
-
-            cart.forEach(item => {
-
-                const subtotal = item.price * item.quantity;
-
-                total += subtotal;
-
-                message +=
-
-                    `${item.quantity}x ${item.name} - R$ ${subtotal
-
-                        .toFixed(2)
-
-                        .replace(".", ",")}%0A`;
-
-            });
-
-            message +=
-
-                `%0A💰 *Total: R$ ${total
-
-                    .toFixed(2)
-
-                    .replace(".", ",")}*`;
-
-            message += "%0A%0A📍 Gostaria de confirmar meu pedido.";
-
-            /*
-
-                TROQUE PELO WHATSAPP REAL DA HAMBURGUERIA.
-
-                Exemplo:
-
-                5587999999999
-
-            */
-
-            const phone = "5500000000000";
+        function fazerPedido(produto, preco) {
+            const numero = "5587991699046";
+
+            const mensagem =
+                "Olá! Quero fazer um pedido na Mordida Burger.%0A%0A" +
+                "Produto: " + produto + "%0A" +
+                "Preço: R$ " + preco + "%0A%0A" +
+                "Gostaria de confirmar meu pedido.";
 
             window.open(
-
-                `https://wa.me/${phone}?text=${message}`,
-
+                "https://wa.me/" + numero + "?text=" + mensagem,
                 "_blank"
-
             );
-
         }
-
-        function filterProducts(category, button) {
-
-            const buttons = document.querySelectorAll(".category");
-
-            buttons.forEach(btn => {
-
-                btn.classList.remove("active");
-
-            });
-
-            button.classList.add("active");
-
-            const products = document.querySelectorAll(".product");
-
-            products.forEach(product => {
-
-                if (
-
-                    category === "todos" ||
-
-                    product.dataset.category === category
-
-                ) {
-
-                    product.style.display = "block";
-
-                } else {
-
-                    product.style.display = "none";
-
-                }
-
-            });
-
-        }
-
     </script>
 
 </body>
