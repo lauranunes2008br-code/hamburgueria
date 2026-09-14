@@ -5,472 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mordida Burger</title>
+    <title>Mordida Burger | O sabor que fica</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+    <meta name="description"
+        content="Mordida Burger — hambúrguer artesanal, combos, batatas e bebidas. Faça seu pedido online.">
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #101010;
-            color: white;
-        }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        header {
-            width: 100%;
-            padding: 20px 7%;
-            background: #111111;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid #292929;
-        }
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
-        .logo {
-            color: #f5b400;
-            font-size: 28px;
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        nav {
-            display: flex;
-            gap: 25px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 15px;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #f5b400;
-        }
-
-        .botao {
-            display: inline-block;
-            background: #f5b400;
-            color: #111111;
-            padding: 14px 22px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .botao:hover {
-            background: white;
-            transform: translateY(-3px);
-        }
-
-        .botao-secundario {
-            background: transparent;
-            color: white;
-            border: 1px solid #f5b400;
-        }
-
-        .botao-secundario:hover {
-            background: #f5b400;
-            color: #111111;
-        }
-
-        .hero {
-            min-height: 600px;
-            padding: 80px 7%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: radial-gradient(
-                circle at right,
-                #3b2a00 0%,
-                #101010 48%
-            );
-        }
-
-        .hero-text {
-            max-width: 850px;
-            text-align: center;
-        }
-
-        .hero-text span {
-            color: #f5b400;
-            font-weight: bold;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .hero-text h1 {
-            font-size: 65px;
-            line-height: 1.05;
-            margin: 20px 0;
-        }
-
-        .hero-text h1 strong {
-            color: #f5b400;
-        }
-
-        .hero-text p {
-            color: #cccccc;
-            font-size: 18px;
-            line-height: 1.7;
-            margin-bottom: 30px;
-        }
-
-        .hero-botoes {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .secao {
-            padding: 80px 7%;
-        }
-
-        .titulo {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .titulo span {
-            color: #f5b400;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        .titulo h2 {
-            font-size: 40px;
-            margin-top: 10px;
-        }
-
-        .produtos {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .produto {
-            background: #1c1c1c;
-            border: 1px solid #303030;
-            border-radius: 18px;
-            padding: 25px;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .produto:hover {
-            transform: translateY(-8px);
-            border-color: #f5b400;
-        }
-
-        .produto-imagem {
-            width: 100%;
-            height: 150px;
-            background: #292929;
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            margin-bottom: 20px;
-        }
-
-        .produto h3 {
-            font-size: 23px;
-            margin-bottom: 10px;
-        }
-
-        .produto p {
-            color: #bbbbbb;
-            line-height: 1.5;
-            margin-bottom: 15px;
-        }
-
-        .preco {
-            display: block;
-            color: #f5b400;
-            font-size: 25px;
-            font-weight: bold;
-            margin-bottom: 18px;
-        }
-
-        .produto-acoes {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .quantidade {
-            color: #f5b400;
-            font-weight: bold;
-            margin-top: 12px;
-            min-height: 20px;
-        }
-
-        .sobre {
-            background: #171717;
-            text-align: center;
-        }
-
-        .sobre p {
-            max-width: 750px;
-            margin: auto;
-            color: #cccccc;
-            line-height: 1.8;
-            font-size: 17px;
-        }
-
-        .contato {
-            text-align: center;
-        }
-
-        .contato p {
-            color: #cccccc;
-            margin: 15px 0 25px;
-            line-height: 1.6;
-        }
-
-        .carrinho {
-            background: #1c1c1c;
-            border: 1px solid #f5b400;
-            border-radius: 18px;
-            padding: 30px;
-            max-width: 850px;
-            margin: 0 auto 60px;
-        }
-
-        .carrinho h2 {
-            color: #f5b400;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        #listaCarrinho {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-
-        .item-carrinho {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-            padding: 15px;
-            background: #292929;
-            border-radius: 10px;
-        }
-
-        .item-carrinho strong {
-            color: #f5b400;
-            font-size: 17px;
-        }
-
-        .item-controles {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .item-controles button {
-            width: 30px;
-            height: 30px;
-            border: none;
-            border-radius: 50%;
-            background: #f5b400;
-            color: #111111;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 18px;
-        }
-
-        .carrinho-vazio {
-            color: #bbbbbb;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .dados-pedido {
-            margin-top: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .dados-pedido label {
-            color: white;
-            font-weight: bold;
-            margin-top: 8px;
-        }
-
-        .dados-pedido label span {
-            color: #aaaaaa;
-            font-size: 13px;
-            font-weight: normal;
-        }
-
-        .dados-pedido select,
-        .dados-pedido textarea {
-            width: 100%;
-            padding: 14px;
-            border-radius: 10px;
-            border: 1px solid #444444;
-            background: #292929;
-            color: white;
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 15px;
-            outline: none;
-        }
-
-        .dados-pedido select:focus,
-        .dados-pedido textarea:focus {
-            border-color: #f5b400;
-        }
-
-        .dados-pedido textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-
-        .dados-pedido textarea::placeholder {
-            color: #999999;
-        }
-
-        .carrinho-final {
-            border-top: 1px solid #444444;
-            padding-top: 20px;
-            margin-top: 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .total {
-            font-size: 25px;
-            color: #f5b400;
-            font-weight: bold;
-        }
-
-        footer {
-            background: #080808;
-            padding: 25px 7%;
-            text-align: center;
-            color: #aaaaaa;
-            border-top: 1px solid #292929;
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            right: 22px;
-            bottom: 22px;
-            width: 62px;
-            height: 62px;
-            background: #25d366;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            font-size: 31px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            z-index: 2000;
-            transition: 0.3s;
-        }
-
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background: #1ebe5d;
-        }
-
-        @media (max-width: 900px) {
-            header {
-                flex-direction: column;
-            }
-
-            .hero {
-                padding-top: 60px;
-                padding-bottom: 60px;
-            }
-
-            .hero-text h1 {
-                font-size: 48px;
-            }
-
-            .produtos {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            nav {
-                gap: 12px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 600px) {
-            .hero {
-                min-height: auto;
-                padding: 60px 5%;
-            }
-
-            .hero-text h1 {
-                font-size: 40px;
-            }
-
-            .hero-text p {
-                font-size: 16px;
-            }
-
-            .produtos {
-                grid-template-columns: 1fr;
-            }
-
-            .titulo h2 {
-                font-size: 32px;
-            }
-
-            .secao {
-                padding: 60px 5%;
-            }
-
-            .carrinho {
-                padding: 20px;
-            }
-
-            .item-carrinho {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .carrinho-final {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .carrinho-final .botao {
-                text-align: center;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -478,715 +25,778 @@
     <header>
 
         <a href="#inicio" class="logo">
-            Mordida Burger 🍔
+            <div class="logo-icon">🍔</div>
+            MORDIDA<span>.</span>
         </a>
 
         <nav>
             <a href="#inicio">Início</a>
             <a href="#cardapio">Cardápio</a>
-            <a href="#carrinho">Carrinho</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
+            <a href="#sobre">Sobre nós</a>
+            <a href="#avaliacoes">Avaliações</a>
         </nav>
 
-        <a class="botao" href="#carrinho">
-            Carrinho 🛒
-        </a>
+        <button class="cart-button" onclick="openCart()">
+            🛒
+            <span class="cart-count" id="cartCount">0</span>
+        </button>
 
     </header>
 
-    <section class="hero" id="inicio">
 
-        <div class="hero-text">
+    <main>
 
-            <span>O sabor que dá vontade de repetir</span>
+        <section class="hero" id="inicio">
 
-            <h1>
-                Morde.<br>
-                <strong>Saboreia.</strong><br>
-                Repete.
-            </h1>
+            <div class="hero-content">
 
-            <p>
-                Hambúrguer artesanal, ingredientes selecionados
-                e muito sabor em cada mordida.
-            </p>
+                <div class="small-title">
+                    Hambúrguer artesanal
+                </div>
 
-            <div class="hero-botoes">
+                <h1>
+                    MORDEU.<br>
+                    <span>APAIXONOU.</span>
+                </h1>
 
-                <a class="botao" href="#cardapio">
-                    Ver cardápio
+                <p class="hero-description">
+                    Hambúrguer artesanal feito para quem não aceita qualquer lanche.
+                    Ingredientes selecionados, muito sabor e aquela mordida que você não esquece.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#cardapio" class="btn btn-primary">
+                        🍔 VER CARDÁPIO
+                    </a>
+
+                    <a href="#sobre" class="btn btn-secondary">
+                        CONHEÇA A GENTE
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=90"
+                    alt="Hambúrguer artesanal">
+
+                <div class="hero-tag">
+                    <strong>4.9 ★</strong>
+                    <small>+1.200 pedidos</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <div class="info-bar">
+
+            <div class="info-item">
+                <div class="info-icon">⚡</div>
+                <span>Entrega rápida</span>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">🥩</div>
+                <span>Ingredientes selecionados</span>
+            </div>
+
+            <div class="info-item">
+                <div class="info-icon">❤️</div>
+                <span>Feito com carinho</span>
+            </div>
+
+        </div>
+
+
+        <section id="cardapio">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    Nosso cardápio
+                </div>
+
+                <h2 class="section-title">
+                    ESCOLHA SUA<br>PRÓXIMA MORDIDA
+                </h2>
+
+                <p class="section-description">
+                    Do clássico ao especial da casa. Escolha seu favorito e monte seu pedido.
+                </p>
+
+            </div>
+
+
+            <div class="categories">
+
+                <button class="category active" onclick="filterProducts('todos', this)">
+                    Todos
+                </button>
+
+                <button class="category" onclick="filterProducts('burgers', this)">
+                    🍔 Burgers
+                </button>
+
+                <button class="category" onclick="filterProducts('combos', this)">
+                    🍟 Combos
+                </button>
+
+                <button class="category" onclick="filterProducts('porcoes', this)">
+                    🍟 Porções
+                </button>
+
+                <button class="category" onclick="filterProducts('bebidas', this)">
+                    🥤 Bebidas
+                </button>
+
+            </div>
+
+
+            <div class="products" id="products">
+
+                <article class="product" data-category="burgers">
+
+                    <div class="product-image">
+
+                        <span class="badge">Mais pedido</span>
+
+                        <img
+                            src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=85"
+                            alt="Mordida Clássico">
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <h3>Mordida Clássico</h3>
+
+                        <p>
+                            Blend artesanal, queijo cheddar, alface,
+                            tomate e molho especial da casa.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                R$ 24,90
+                            </div>
+
+                            <button class="add-button"
+                                onclick="addToCart('Mordida Clássico', 24.90, 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=300&q=80')">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="product" data-category="burgers">
+
+                    <div class="product-image">
+
+                        <span class="badge">Especial</span>
+
+                        <img
+                            src="https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=800&q=85"
+                            alt="Mordida Bacon">
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <h3>Mordida Bacon</h3>
+
+                        <p>
+                            Blend artesanal, cheddar cremoso,
+                            bacon crocante e molho barbecue.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                R$ 29,90
+                            </div>
+
+                            <button class="add-button"
+                                onclick="addToCart('Mordida Bacon', 29.90, 'https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=300&q=80')">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="product" data-category="burgers">
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=800&q=85"
+                            alt="Mordida Duplo">
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <h3>Mordida Duplo</h3>
+
+                        <p>
+                            Dois blends artesanais, cheddar,
+                            cebola caramelizada e molho especial.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                R$ 34,90
+                            </div>
+
+                            <button class="add-button"
+                                onclick="addToCart('Mordida Duplo', 34.90, 'https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=300&q=80')">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="product" data-category="combos">
+
+                    <div class="product-image">
+
+                        <span class="badge">Combo</span>
+
+                        <img
+                            src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=800&q=85"
+                            alt="Combo Mordida">
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <h3>Combo Mordida</h3>
+
+                        <p>
+                            Mordida Clássico + batata crocante
+                            + refrigerante gelado.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                R$ 34,90
+                            </div>
+
+                            <button class="add-button"
+                                onclick="addToCart('Combo Mordida', 34.90, 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?auto=format&fit=crop&w=300&q=80')">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="product" data-category="porcoes">
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=85"
+                            alt="Batata especial">
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <h3>Batata Especial</h3>
+
+                        <p>
+                            Batata crocante com cheddar cremoso
+                            e bacon.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                R$ 19,90
+                            </div>
+
+                            <button class="add-button"
+                                onclick="addToCart('Batata Especial', 19.90, 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=300&q=80')">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <article class="product" data-category="bebidas">
+
+                    <div class="product-image">
+
+                        <img
+                            src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=800&q=85"
+                            alt="Refrigerante">
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <h3>Refri Gelado</h3>
+
+                        <p>
+                            Refrigerante bem gelado para acompanhar
+                            sua Mordida.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <div class="price">
+                                R$ 7,00
+                            </div>
+
+                            <button class="add-button"
+                                onclick="addToCart('Refri Gelado', 7.00, 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=300&q=80')">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <div class="highlight">
+
+            <div class="highlight-content">
+
+                <div class="section-label">
+                    O favorito da casa
+                </div>
+
+                <h2 class="section-title">
+                    MORDEU,<br>FEDEROU.
+                </h2>
+
+                <p>
+                    Aquele burger caprichado, cheio de queijo,
+                    ingredientes frescos e muito sabor.
+                    É impossível comer uma vez só.
+                </p>
+
+                <a href="#cardapio" class="btn btn-primary">
+                    QUERO EXPERIMENTAR 🍔
                 </a>
 
-                <a class="botao botao-secundario" href="#carrinho">
-                    Ver carrinho
-                </a>
-
             </div>
 
         </div>
 
-    </section>
 
-    <section class="secao" id="cardapio">
+        <section class="about" id="sobre">
 
-        <div class="titulo">
+            <div class="about-image">
 
-            <span>Nosso cardápio</span>
+                <img
+                    src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1000&q=85"
+                    alt="Hambúrguer artesanal">
 
-            <h2>Escolha sua mordida</h2>
+            </div>
 
-        </div>
 
-        <div class="produtos">
+            <div class="about-text">
 
-            <div class="produto">
-
-                <div class="produto-imagem">
-                    🍔
+                <div class="section-label">
+                    Sobre a Mordida
                 </div>
 
-                <h3>Classic Burger</h3>
+                <h2 class="section-title">
+                    FEITO PRA<br>VOCÊ REPETIR
+                </h2>
 
                 <p>
-                    Pão macio, hambúrguer artesanal,
-                    queijo, alface e molho especial.
+                    A Mordida nasceu da vontade de transformar um simples
+                    hambúrguer em uma experiência de verdade.
                 </p>
 
-                <span class="preco">
-                    R$ 18,90
-                </span>
+                <p>
+                    Cada burger é preparado na hora, com ingredientes
+                    selecionados e muito cuidado em cada detalhe.
+                </p>
 
-                <div class="produto-acoes">
 
-                    <button
-                        class="botao"
-                        onclick="adicionarCarrinho('Classic Burger', 18.90)"
-                    >
-                        Adicionar
-                    </button>
+                <div class="features">
 
-                </div>
+                    <div class="feature">
+                        <strong>🥩 Blend artesanal</strong>
+                        <span>Carne preparada especialmente para nossos burgers.</span>
+                    </div>
 
-                <div class="quantidade" id="quantidade-ClassicBurger">
-                    0 no carrinho
+                    <div class="feature">
+                        <strong>🧀 Queijo de verdade</strong>
+                        <span>Cheddar cremoso e muito sabor.</span>
+                    </div>
+
+                    <div class="feature">
+                        <strong>🔥 Preparado na hora</strong>
+                        <span>Seu pedido feito especialmente para você.</span>
+                    </div>
+
+                    <div class="feature">
+                        <strong>❤️ Muito sabor</strong>
+                        <span>Receitas pensadas para você querer repetir.</span>
+                    </div>
+
                 </div>
 
             </div>
 
-            <div class="produto">
+        </section>
 
-                <div class="produto-imagem">
-                    🍔
+
+        <section id="avaliacoes">
+
+            <div class="section-header">
+
+                <div class="section-label">
+                    Quem prova, aprova
                 </div>
 
-                <h3>Cheese Bacon</h3>
+                <h2 class="section-title">
+                    O QUE ESTÃO<br>FALANDO
+                </h2>
 
-                <p>
-                    Hambúrguer artesanal, queijo derretido,
-                    bacon crocante e molho da casa.
-                </p>
+            </div>
 
-                <span class="preco">
-                    R$ 22,90
-                </span>
 
-                <div class="produto-acoes">
+            <div class="reviews">
 
-                    <button
-                        class="botao"
-                        onclick="adicionarCarrinho('Cheese Bacon', 22.90)"
-                    >
-                        Adicionar
-                    </button>
+                <div class="review">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        “Simplesmente maravilhoso! O hambúrguer chegou
+                        quentinho e muito bem montado. Já quero pedir de novo.”
+                    </p>
+
+                    <div class="customer">
+                        <div class="avatar">A</div>
+
+                        <div>
+                            <strong>Ana Clara</strong>
+                            <small>Cliente</small>
+                        </div>
+                    </div>
 
                 </div>
 
-                <div class="quantidade" id="quantidade-CheeseBacon">
-                    0 no carrinho
+
+                <div class="review">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        “O bacon é absurdo de bom. A batata também é
+                        maravilhosa. Virou meu lugar favorito.”
+                    </p>
+
+                    <div class="customer">
+                        <div class="avatar">M</div>
+
+                        <div>
+                            <strong>Mateus</strong>
+                            <small>Cliente</small>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="review">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        “Atendimento ótimo, preço justo e o lanche
+                        é simplesmente perfeito.”
+                    </p>
+
+                    <div class="customer">
+                        <div class="avatar">J</div>
+
+                        <div>
+                            <strong>Juliana</strong>
+                            <small>Cliente</small>
+                        </div>
+                    </div>
+
                 </div>
 
             </div>
 
-            <div class="produto">
+        </section>
 
-                <div class="produto-imagem">
-                    🍔
-                </div>
 
-                <h3>Duplo Mordida</h3>
+        <section class="cta">
 
-                <p>
-                    Dois hambúrgueres, queijo em dobro,
-                    molho especial e pão tostado.
-                </p>
-
-                <span class="preco">
-                    R$ 27,90
-                </span>
-
-                <div class="produto-acoes">
-
-                    <button
-                        class="botao"
-                        onclick="adicionarCarrinho('Duplo Mordida', 27.90)"
-                    >
-                        Adicionar
-                    </button>
-
-                </div>
-
-                <div class="quantidade" id="quantidade-DuploMordida">
-                    0 no carrinho
-                </div>
-
+            <div class="section-label">
+                Está esperando o quê?
             </div>
-
-            <div class="produto">
-
-                <div class="produto-imagem">
-                    🍟
-                </div>
-
-                <h3>Batata Frita</h3>
-
-                <p>
-                    Batatas crocantes por fora,
-                    macias por dentro e bem temperadas.
-                </p>
-
-                <span class="preco">
-                    R$ 10,00
-                </span>
-
-                <div class="produto-acoes">
-
-                    <button
-                        class="botao"
-                        onclick="adicionarCarrinho('Batata Frita', 10.00)"
-                    >
-                        Adicionar
-                    </button>
-
-                </div>
-
-                <div class="quantidade" id="quantidade-BatataFrita">
-                    0 no carrinho
-                </div>
-
-            </div>
-
-            <div class="produto">
-
-                <div class="produto-imagem">
-                    🥤
-                </div>
-
-                <h3>Refrigerante</h3>
-
-                <p>
-                    Bebida gelada para acompanhar
-                    seu hambúrguer favorito.
-                </p>
-
-                <span class="preco">
-                    R$ 6,00
-                </span>
-
-                <div class="produto-acoes">
-
-                    <button
-                        class="botao"
-                        onclick="adicionarCarrinho('Refrigerante', 6.00)"
-                    >
-                        Adicionar
-                    </button>
-
-                </div>
-
-                <div class="quantidade" id="quantidade-Refrigerante">
-                    0 no carrinho
-                </div>
-
-            </div>
-
-            <div class="produto">
-
-                <div class="produto-imagem">
-                    🍫
-                </div>
-
-                <h3>Sobremesa</h3>
-
-                <p>
-                    Uma sobremesa deliciosa para
-                    finalizar seu pedido.
-                </p>
-
-                <span class="preco">
-                    R$ 9,90
-                </span>
-
-                <div class="produto-acoes">
-
-                    <button
-                        class="botao"
-                        onclick="adicionarCarrinho('Sobremesa', 9.90)"
-                    >
-                        Adicionar
-                    </button>
-
-                </div>
-
-                <div class="quantidade" id="quantidade-Sobremesa">
-                    0 no carrinho
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="secao" id="carrinho">
-
-        <div class="carrinho">
 
             <h2>
-                Seu carrinho 🛒
+                SUA FOME<br>MERECE ISSO.
             </h2>
 
-            <div id="listaCarrinho">
+            <p>
+                Escolha seu burger favorito e faça seu pedido agora.
+            </p>
 
-                <p class="carrinho-vazio">
-                    Seu carrinho está vazio.
+            <a href="#cardapio" class="btn btn-primary">
+                🍔 PEDIR AGORA
+            </a>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <div class="footer-grid">
+
+            <div>
+
+                <a href="#inicio" class="logo">
+                    <div class="logo-icon">🍔</div>
+                    MORDIDA<span>.</span>
+                </a>
+
+                <p class="footer-description">
+                    Hambúrguer artesanal, ingredientes selecionados
+                    e muito sabor. A mordida que você estava procurando.
                 </p>
 
             </div>
 
-            <div class="dados-pedido">
 
-                <label for="pagamento">
-                    Forma de pagamento *
-                </label>
+            <div>
 
-                <select id="pagamento">
+                <h4>Links</h4>
 
-                    <option value="">
-                        Escolha uma forma de pagamento
-                    </option>
-
-                    <option value="Pix">
-                        Pix
-                    </option>
-
-                    <option value="Dinheiro">
-                        Dinheiro
-                    </option>
-
-                    <option value="Cartão">
-                        Cartão
-                    </option>
-
-                </select>
-
-                <label for="observacoes">
-
-                    Observações
-
-                    <span>
-                        (opcional)
-                    </span>
-
-                </label>
-
-                <textarea
-                    id="observacoes"
-                    placeholder="Ex.: sem cebola, retirar molho, ponto da carne..."
-                ></textarea>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#cardapio">Cardápio</a></li>
+                    <li><a href="#sobre">Sobre nós</a></li>
+                    <li><a href="#avaliacoes">Avaliações</a></li>
+                </ul>
 
             </div>
 
-            <div class="carrinho-final">
+
+            <div>
+
+                <h4>Funcionamento</h4>
+
+                <ul>
+                    <li>Terça a Domingo</li>
+                    <li>18h às 23h</li>
+                    <li>📍 Sua cidade - PE</li>
+                    <li>📲 (00) 00000-0000</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Mordida Burger. Todos os direitos reservados.
+            </span>
+
+            <span>
+                Feito com 🍔
+            </span>
+
+        </div>
+
+    </footer>
+
+
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCartOutside(event)">
+
+        <div class="cart">
+
+            <div class="cart-header">
+
+                <h2>SEU PEDIDO</h2>
+
+                <button class="close-cart" onclick="closeCart()">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="cart-items" id="cartItems">
+
+                <div class="empty-cart">
+
+                    <div>🛒</div>
+
+                    <p>
+                        Seu carrinho está vazio.
+                    </p>
+
+                    <small>
+                        Escolha alguma delícia no cardápio!
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="cart-footer">
+
+                <div class="checkout-fields">
+
+                    <label for="paymentMethod">
+                        Forma de pagamento
+                    </label>
+
+                    <select id="paymentMethod">
+
+                        <option value="">
+                            Selecione o pagamento
+                        </option>
+
+                        <option value="Pix">
+                            Pix
+                        </option>
+
+                        <option value="Cartão">
+                            Cartão
+                        </option>
+
+                        <option value="Dinheiro">
+                            Dinheiro
+                        </option>
+
+                    </select>
+
+
+                    <label for="orderType">
+                        Como deseja receber?
+                    </label>
+
+                    <select id="orderType" onchange="toggleAddress()">
+
+                        <option value="Retirada no local">
+                            Retirada no local
+                        </option>
+
+                        <option value="Entrega">
+                            Entrega
+                        </option>
+
+                    </select>
+
+
+                    <div id="addressGroup">
+
+                        <label for="address">
+                            Endereço para entrega
+                        </label>
+
+                        <input
+                            type="text"
+                            id="address"
+                            placeholder="Digite seu endereço completo">
+
+                    </div>
+
+
+                    <label for="observations">
+                        Observações do pedido
+                    </label>
+
+                    <textarea
+                        id="observations"
+                        placeholder="Ex: sem cebola, sem molho, troco..."></textarea>
+
+                </div>
+
 
                 <div class="total">
 
-                    Total: R$
-
-                    <span id="totalCarrinho">
-                        0,00
+                    <span>
+                        Total
                     </span>
+
+                    <strong id="cartTotal">
+                        R$ 0,00
+                    </strong>
 
                 </div>
 
-                <button
-                    class="botao"
-                    onclick="pedirPeloWhatsApp()"
-                >
-                    Pedir pelo WhatsApp
+
+                <button class="btn btn-primary checkout" onclick="checkout()">
+                    PEDIR PELO WHATSAPP 📲
                 </button>
 
             </div>
 
         </div>
 
-    </section>
+    </div>
 
-    <section class="secao sobre" id="sobre">
-
-        <div class="titulo">
-
-            <span>
-                Sobre nós
-            </span>
-
-            <h2>
-                Feito para matar sua fome
-            </h2>
-
-        </div>
-
-        <p>
-            Na Mordida Burger, cada hambúrguer é preparado com carinho,
-            ingredientes selecionados e muito sabor. Nosso objetivo é
-            oferecer uma experiência deliciosa do primeiro ao último pedaço.
-        </p>
-
-    </section>
-
-    <section class="secao contato" id="contato">
-
-        <div class="titulo">
-
-            <span>
-                Faça seu pedido
-            </span>
-
-            <h2>
-                Fale com a Mordida Burger
-            </h2>
-
-        </div>
-
-        <p>
-            Escolha seus produtos, adicione ao carrinho e envie seu pedido
-            diretamente pelo WhatsApp.
-        </p>
-
-        <a
-            class="botao"
-            href="https://wa.me/5587991699046?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20na%20Mordida%20Burger."
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            Falar pelo WhatsApp
-        </a>
-
-    </section>
-
-    <footer>
-
-        <p>
-            © 2026 Mordida Burger. Todos os direitos reservados.
-        </p>
-
-    </footer>
 
     <a
-        class="whatsapp-float"
-        href="https://wa.me/5587991699046?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido."
+        class="whatsapp"
+        href="https://wa.me/5587991699046"
         target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Falar com a Mordida Burger pelo WhatsApp"
-    >
-        💬
+        title="Fale conosco pelo WhatsApp">
+        ☎
     </a>
 
-    <script>
-        const numeroWhatsApp = "5587991699046";
 
-        let carrinho = [];
-
-        function adicionarCarrinho(nome, preco) {
-
-            const produtoExistente = carrinho.find(
-                produto => produto.nome === nome
-            );
-
-            if (produtoExistente) {
-
-                produtoExistente.quantidade++;
-
-            } else {
-
-                carrinho.push({
-                    nome: nome,
-                    preco: preco,
-                    quantidade: 1
-                });
-
-            }
-
-            atualizarCarrinho();
-
-        }
-
-        function diminuirQuantidade(nome) {
-
-            const produto = carrinho.find(
-                item => item.nome === nome
-            );
-
-            if (!produto) {
-                return;
-            }
-
-            produto.quantidade--;
-
-            if (produto.quantidade <= 0) {
-
-                carrinho = carrinho.filter(
-                    item => item.nome !== nome
-                );
-
-            }
-
-            atualizarCarrinho();
-
-        }
-
-        function aumentarQuantidade(nome) {
-
-            const produto = carrinho.find(
-                item => item.nome === nome
-            );
-
-            if (produto) {
-
-                produto.quantidade++;
-
-            }
-
-            atualizarCarrinho();
-
-        }
-
-        function atualizarCarrinho() {
-
-            const listaCarrinho =
-                document.getElementById("listaCarrinho");
-
-            const totalCarrinho =
-                document.getElementById("totalCarrinho");
-
-            listaCarrinho.innerHTML = "";
-
-            if (carrinho.length === 0) {
-
-                listaCarrinho.innerHTML = `
-                    <p class="carrinho-vazio">
-                        Seu carrinho está vazio.
-                    </p>
-                `;
-
-                totalCarrinho.textContent = "0,00";
-
-                atualizarQuantidades();
-
-                return;
-
-            }
-
-            let total = 0;
-
-            carrinho.forEach(produto => {
-
-                const subtotal =
-                    produto.preco * produto.quantidade;
-
-                total += subtotal;
-
-                const item =
-                    document.createElement("div");
-
-                item.className = "item-carrinho";
-
-                item.innerHTML = `
-
-                    <div>
-
-                        <strong>
-                            ${produto.nome}
-                        </strong>
-
-                        <br>
-
-                        ${produto.quantidade} unidade(s)
-
-                        <br>
-
-                        R$ ${subtotal
-                            .toFixed(2)
-                            .replace(".", ",")}
-
-                    </div>
-
-                    <div class="item-controles">
-
-                        <button
-                            onclick="diminuirQuantidade('${produto.nome}')"
-                            aria-label="Diminuir quantidade"
-                        >
-                            −
-                        </button>
-
-                        <span>
-                            ${produto.quantidade}
-                        </span>
-
-                        <button
-                            onclick="aumentarQuantidade('${produto.nome}')"
-                            aria-label="Aumentar quantidade"
-                        >
-                            +
-                        </button>
-
-                    </div>
-
-                `;
-
-                listaCarrinho.appendChild(item);
-
-            });
-
-            totalCarrinho.textContent =
-                total.toFixed(2).replace(".", ",");
-
-            atualizarQuantidades();
-
-        }
-
-        function atualizarQuantidades() {
-
-            const produtos = [
-                "Classic Burger",
-                "Cheese Bacon",
-                "Duplo Mordida",
-                "Batata Frita",
-                "Refrigerante",
-                "Sobremesa"
-            ];
-
-            produtos.forEach(nome => {
-
-                const produto = carrinho.find(
-                    item => item.nome === nome
-                );
-
-                const id =
-                    "quantidade-" + nome.replaceAll(" ", "");
-
-                const elemento =
-                    document.getElementById(id);
-
-                if (elemento) {
-
-                    elemento.textContent = produto
-                        ? produto.quantidade + " no carrinho"
-                        : "0 no carrinho";
-
-                }
-
-            });
-
-        }
-
-        function pedirPeloWhatsApp() {
-
-            if (carrinho.length === 0) {
-
-                alert(
-                    "Adicione pelo menos um produto ao carrinho."
-                );
-
-                return;
-
-            }
-
-            const pagamento =
-                document.getElementById("pagamento").value;
-
-            const observacoes =
-                document.getElementById("observacoes").value.trim();
-
-            if (pagamento === "") {
-
-                alert(
-                    "Escolha uma forma de pagamento antes de continuar."
-                );
-
-                document.getElementById("pagamento").focus();
-
-                return;
-
-            }
-
-            let mensagem =
-                "Olá! Quero fazer um pedido na Mordida Burger.\n\n";
-
-            let total = 0;
-
-            carrinho.forEach(produto => {
-
-                const subtotal =
-                    produto.preco * produto.quantidade;
-
-                total += subtotal;
-
-                mensagem +=
-                    produto.quantidade +
-                    "x " +
-                    produto.nome +
-                    " - R$ " +
-                    subtotal.toFixed(2).replace(".", ",") +
-                    "\n";
-
-            });
-
-            mensagem +=
-                "\nTotal do pedido: R$ " +
-                total.toFixed(2).replace(".", ",") +
-                "\n";
-
-            mensagem +=
-                "Forma de pagamento: " +
-                pagamento +
-                "\n";
-
-            if (observacoes !== "") {
-
-                mensagem +=
-                    "Observações: " +
-                    observacoes +
-                    "\n";
-
-            }
-
-            mensagem +=
-                "\nNome:\n" +
-                "Endereço:\n";
-
-            const linkWhatsApp =
-                "https://wa.me/" +
-                numeroWhatsApp +
-                "?text=" +
-                encodeURIComponent(mensagem);
-
-            window.open(linkWhatsApp, "_blank");
-
-        }
-    </script>
+    <script src="script.js"></script>
 
 </body>
-
 </html>
