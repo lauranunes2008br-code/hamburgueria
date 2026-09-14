@@ -88,12 +88,11 @@
         }
 
         .hero {
-            min-height: 650px;
+            min-height: 600px;
             padding: 80px 7%;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            gap: 40px;
+            justify-content: center;
             background: radial-gradient(
                 circle at right,
                 #3b2a00 0%,
@@ -102,7 +101,8 @@
         }
 
         .hero-text {
-            max-width: 550px;
+            max-width: 850px;
+            text-align: center;
         }
 
         .hero-text span {
@@ -131,93 +131,9 @@
 
         .hero-botoes {
             display: flex;
+            justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
-        }
-
-        .hero-image {
-            width: 48%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .burger-illustration {
-            width: 440px;
-            min-height: 330px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.6));
-        }
-
-        .bread-top {
-            width: 330px;
-            height: 100px;
-            background: linear-gradient(#f2c16c, #b96b20);
-            border-radius: 180px 180px 35px 35px;
-            position: relative;
-            z-index: 5;
-            box-shadow: inset 0 -12px rgba(100, 45, 5, 0.25);
-        }
-
-        .bread-top::before {
-            content: "";
-            position: absolute;
-            width: 15px;
-            height: 7px;
-            background: #ffe0a0;
-            border-radius: 50%;
-            top: 30px;
-            left: 70px;
-            transform: rotate(-20deg);
-            box-shadow:
-                60px -10px #ffe0a0,
-                125px 5px #ffe0a0,
-                180px -8px #ffe0a0;
-        }
-
-        .lettuce {
-            width: 350px;
-            height: 28px;
-            background: #4e9b2e;
-            border-radius: 20px;
-            z-index: 4;
-            margin-top: -8px;
-        }
-
-        .cheese {
-            width: 345px;
-            height: 35px;
-            background: #f5c400;
-            clip-path: polygon(
-                0 0,
-                100% 0,
-                95% 100%,
-                75% 70%,
-                55% 100%,
-                35% 70%,
-                15% 100%
-            );
-            z-index: 3;
-        }
-
-        .meat {
-            width: 350px;
-            height: 62px;
-            background: linear-gradient(#75401e, #3b1c0d);
-            border-radius: 18px;
-            z-index: 2;
-            box-shadow: inset 0 8px rgba(255, 255, 255, 0.08);
-        }
-
-        .bread-bottom {
-            width: 335px;
-            height: 48px;
-            background: linear-gradient(#d99036, #9c551d);
-            border-radius: 10px 10px 35px 35px;
-            z-index: 1;
         }
 
         .secao {
@@ -363,6 +279,7 @@
 
         .item-carrinho strong {
             color: #f5b400;
+            font-size: 17px;
         }
 
         .item-controles {
@@ -380,6 +297,7 @@
             color: #111111;
             font-weight: bold;
             cursor: pointer;
+            font-size: 18px;
         }
 
         .carrinho-vazio {
@@ -388,9 +306,56 @@
             padding: 20px;
         }
 
+        .dados-pedido {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .dados-pedido label {
+            color: white;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        .dados-pedido label span {
+            color: #aaaaaa;
+            font-size: 13px;
+            font-weight: normal;
+        }
+
+        .dados-pedido select,
+        .dados-pedido textarea {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid #444444;
+            background: #292929;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            outline: none;
+        }
+
+        .dados-pedido select:focus,
+        .dados-pedido textarea:focus {
+            border-color: #f5b400;
+        }
+
+        .dados-pedido textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .dados-pedido textarea::placeholder {
+            color: #999999;
+        }
+
         .carrinho-final {
             border-top: 1px solid #444444;
             padding-top: 20px;
+            margin-top: 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -442,22 +407,12 @@
             }
 
             .hero {
-                flex-direction: column;
-                text-align: center;
                 padding-top: 60px;
+                padding-bottom: 60px;
             }
 
             .hero-text h1 {
                 font-size: 48px;
-            }
-
-            .hero-text,
-            .hero-image {
-                width: 100%;
-            }
-
-            .hero-botoes {
-                justify-content: center;
             }
 
             .produtos {
@@ -483,11 +438,6 @@
 
             .hero-text p {
                 font-size: 16px;
-            }
-
-            .burger-illustration {
-                transform: scale(0.75);
-                margin: -35px 0;
             }
 
             .produtos {
@@ -526,7 +476,10 @@
 <body>
 
     <header>
-        <a href="#inicio" class="logo">Mordida Burger 🍔</a>
+
+        <a href="#inicio" class="logo">
+            Mordida Burger 🍔
+        </a>
 
         <nav>
             <a href="#inicio">Início</a>
@@ -539,11 +492,13 @@
         <a class="botao" href="#carrinho">
             Carrinho 🛒
         </a>
+
     </header>
 
     <section class="hero" id="inicio">
 
         <div class="hero-text">
+
             <span>O sabor que dá vontade de repetir</span>
 
             <h1>
@@ -558,6 +513,7 @@
             </p>
 
             <div class="hero-botoes">
+
                 <a class="botao" href="#cardapio">
                     Ver cardápio
                 </a>
@@ -565,17 +521,9 @@
                 <a class="botao botao-secundario" href="#carrinho">
                     Ver carrinho
                 </a>
-            </div>
-        </div>
 
-        <div class="hero-image">
-            <div class="burger-illustration">
-                <div class="bread-top"></div>
-                <div class="lettuce"></div>
-                <div class="cheese"></div>
-                <div class="meat"></div>
-                <div class="bread-bottom"></div>
             </div>
+
         </div>
 
     </section>
@@ -583,14 +531,20 @@
     <section class="secao" id="cardapio">
 
         <div class="titulo">
+
             <span>Nosso cardápio</span>
+
             <h2>Escolha sua mordida</h2>
+
         </div>
 
         <div class="produtos">
 
             <div class="produto">
-                <div class="produto-imagem">🍔</div>
+
+                <div class="produto-imagem">
+                    🍔
+                </div>
 
                 <h3>Classic Burger</h3>
 
@@ -599,21 +553,32 @@
                     queijo, alface e molho especial.
                 </p>
 
-                <span class="preco">R$ 18,90</span>
+                <span class="preco">
+                    R$ 18,90
+                </span>
 
                 <div class="produto-acoes">
-                    <button class="botao" onclick="adicionarCarrinho('Classic Burger', 18.90)">
+
+                    <button
+                        class="botao"
+                        onclick="adicionarCarrinho('Classic Burger', 18.90)"
+                    >
                         Adicionar
                     </button>
+
                 </div>
 
                 <div class="quantidade" id="quantidade-ClassicBurger">
                     0 no carrinho
                 </div>
+
             </div>
 
             <div class="produto">
-                <div class="produto-imagem">🍔</div>
+
+                <div class="produto-imagem">
+                    🍔
+                </div>
 
                 <h3>Cheese Bacon</h3>
 
@@ -622,21 +587,32 @@
                     bacon crocante e molho da casa.
                 </p>
 
-                <span class="preco">R$ 22,90</span>
+                <span class="preco">
+                    R$ 22,90
+                </span>
 
                 <div class="produto-acoes">
-                    <button class="botao" onclick="adicionarCarrinho('Cheese Bacon', 22.90)">
+
+                    <button
+                        class="botao"
+                        onclick="adicionarCarrinho('Cheese Bacon', 22.90)"
+                    >
                         Adicionar
                     </button>
+
                 </div>
 
                 <div class="quantidade" id="quantidade-CheeseBacon">
                     0 no carrinho
                 </div>
+
             </div>
 
             <div class="produto">
-                <div class="produto-imagem">🍔</div>
+
+                <div class="produto-imagem">
+                    🍔
+                </div>
 
                 <h3>Duplo Mordida</h3>
 
@@ -645,21 +621,32 @@
                     molho especial e pão tostado.
                 </p>
 
-                <span class="preco">R$ 27,90</span>
+                <span class="preco">
+                    R$ 27,90
+                </span>
 
                 <div class="produto-acoes">
-                    <button class="botao" onclick="adicionarCarrinho('Duplo Mordida', 27.90)">
+
+                    <button
+                        class="botao"
+                        onclick="adicionarCarrinho('Duplo Mordida', 27.90)"
+                    >
                         Adicionar
                     </button>
+
                 </div>
 
                 <div class="quantidade" id="quantidade-DuploMordida">
                     0 no carrinho
                 </div>
+
             </div>
 
             <div class="produto">
-                <div class="produto-imagem">🍟</div>
+
+                <div class="produto-imagem">
+                    🍟
+                </div>
 
                 <h3>Batata Frita</h3>
 
@@ -668,21 +655,32 @@
                     macias por dentro e bem temperadas.
                 </p>
 
-                <span class="preco">R$ 10,00</span>
+                <span class="preco">
+                    R$ 10,00
+                </span>
 
                 <div class="produto-acoes">
-                    <button class="botao" onclick="adicionarCarrinho('Batata Frita', 10.00)">
+
+                    <button
+                        class="botao"
+                        onclick="adicionarCarrinho('Batata Frita', 10.00)"
+                    >
                         Adicionar
                     </button>
+
                 </div>
 
                 <div class="quantidade" id="quantidade-BatataFrita">
                     0 no carrinho
                 </div>
+
             </div>
 
             <div class="produto">
-                <div class="produto-imagem">🥤</div>
+
+                <div class="produto-imagem">
+                    🥤
+                </div>
 
                 <h3>Refrigerante</h3>
 
@@ -691,21 +689,32 @@
                     seu hambúrguer favorito.
                 </p>
 
-                <span class="preco">R$ 6,00</span>
+                <span class="preco">
+                    R$ 6,00
+                </span>
 
                 <div class="produto-acoes">
-                    <button class="botao" onclick="adicionarCarrinho('Refrigerante', 6.00)">
+
+                    <button
+                        class="botao"
+                        onclick="adicionarCarrinho('Refrigerante', 6.00)"
+                    >
                         Adicionar
                     </button>
+
                 </div>
 
                 <div class="quantidade" id="quantidade-Refrigerante">
                     0 no carrinho
                 </div>
+
             </div>
 
             <div class="produto">
-                <div class="produto-imagem">🍫</div>
+
+                <div class="produto-imagem">
+                    🍫
+                </div>
 
                 <h3>Sobremesa</h3>
 
@@ -714,42 +723,109 @@
                     finalizar seu pedido.
                 </p>
 
-                <span class="preco">R$ 9,90</span>
+                <span class="preco">
+                    R$ 9,90
+                </span>
 
                 <div class="produto-acoes">
-                    <button class="botao" onclick="adicionarCarrinho('Sobremesa', 9.90)">
+
+                    <button
+                        class="botao"
+                        onclick="adicionarCarrinho('Sobremesa', 9.90)"
+                    >
                         Adicionar
                     </button>
+
                 </div>
 
                 <div class="quantidade" id="quantidade-Sobremesa">
                     0 no carrinho
                 </div>
+
             </div>
 
         </div>
+
     </section>
 
     <section class="secao" id="carrinho">
 
         <div class="carrinho">
 
-            <h2>Seu carrinho 🛒</h2>
+            <h2>
+                Seu carrinho 🛒
+            </h2>
 
             <div id="listaCarrinho">
+
                 <p class="carrinho-vazio">
                     Seu carrinho está vazio.
                 </p>
+
+            </div>
+
+            <div class="dados-pedido">
+
+                <label for="pagamento">
+                    Forma de pagamento *
+                </label>
+
+                <select id="pagamento">
+
+                    <option value="">
+                        Escolha uma forma de pagamento
+                    </option>
+
+                    <option value="Pix">
+                        Pix
+                    </option>
+
+                    <option value="Dinheiro">
+                        Dinheiro
+                    </option>
+
+                    <option value="Cartão">
+                        Cartão
+                    </option>
+
+                </select>
+
+                <label for="observacoes">
+
+                    Observações
+
+                    <span>
+                        (opcional)
+                    </span>
+
+                </label>
+
+                <textarea
+                    id="observacoes"
+                    placeholder="Ex.: sem cebola, retirar molho, ponto da carne..."
+                ></textarea>
+
             </div>
 
             <div class="carrinho-final">
+
                 <div class="total">
-                    Total: R$ <span id="totalCarrinho">0,00</span>
+
+                    Total: R$
+
+                    <span id="totalCarrinho">
+                        0,00
+                    </span>
+
                 </div>
 
-                <button class="botao" onclick="pedirPeloWhatsApp()">
+                <button
+                    class="botao"
+                    onclick="pedirPeloWhatsApp()"
+                >
                     Pedir pelo WhatsApp
                 </button>
+
             </div>
 
         </div>
@@ -759,8 +835,15 @@
     <section class="secao sobre" id="sobre">
 
         <div class="titulo">
-            <span>Sobre nós</span>
-            <h2>Feito para matar sua fome</h2>
+
+            <span>
+                Sobre nós
+            </span>
+
+            <h2>
+                Feito para matar sua fome
+            </h2>
+
         </div>
 
         <p>
@@ -774,8 +857,15 @@
     <section class="secao contato" id="contato">
 
         <div class="titulo">
-            <span>Faça seu pedido</span>
-            <h2>Fale com a Mordida Burger</h2>
+
+            <span>
+                Faça seu pedido
+            </span>
+
+            <h2>
+                Fale com a Mordida Burger
+            </h2>
+
         </div>
 
         <p>
@@ -785,7 +875,7 @@
 
         <a
             class="botao"
-            href="https://wa.me/5587991699046?text=Olá!%20Quero%20fazer%20um%20pedido%20na%20Mordida%20Burger."
+            href="https://wa.me/5587991699046?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido%20na%20Mordida%20Burger."
             target="_blank"
             rel="noopener noreferrer"
         >
@@ -795,14 +885,16 @@
     </section>
 
     <footer>
+
         <p>
             © 2026 Mordida Burger. Todos os direitos reservados.
         </p>
+
     </footer>
 
     <a
         class="whatsapp-float"
-        href="https://wa.me/5587991699046?text=Olá!%20Quero%20fazer%20um%20pedido."
+        href="https://wa.me/5587991699046?text=Ol%C3%A1%21%20Quero%20fazer%20um%20pedido."
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Falar com a Mordida Burger pelo WhatsApp"
@@ -816,24 +908,31 @@
         let carrinho = [];
 
         function adicionarCarrinho(nome, preco) {
+
             const produtoExistente = carrinho.find(
                 produto => produto.nome === nome
             );
 
             if (produtoExistente) {
+
                 produtoExistente.quantidade++;
+
             } else {
+
                 carrinho.push({
                     nome: nome,
                     preco: preco,
                     quantidade: 1
                 });
+
             }
 
             atualizarCarrinho();
+
         }
 
         function diminuirQuantidade(nome) {
+
             const produto = carrinho.find(
                 item => item.nome === nome
             );
@@ -845,33 +944,45 @@
             produto.quantidade--;
 
             if (produto.quantidade <= 0) {
+
                 carrinho = carrinho.filter(
                     item => item.nome !== nome
                 );
+
             }
 
             atualizarCarrinho();
+
         }
 
         function aumentarQuantidade(nome) {
+
             const produto = carrinho.find(
                 item => item.nome === nome
             );
 
             if (produto) {
+
                 produto.quantidade++;
+
             }
 
             atualizarCarrinho();
+
         }
 
         function atualizarCarrinho() {
-            const listaCarrinho = document.getElementById("listaCarrinho");
-            const totalCarrinho = document.getElementById("totalCarrinho");
+
+            const listaCarrinho =
+                document.getElementById("listaCarrinho");
+
+            const totalCarrinho =
+                document.getElementById("totalCarrinho");
 
             listaCarrinho.innerHTML = "";
 
             if (carrinho.length === 0) {
+
                 listaCarrinho.innerHTML = `
                     <p class="carrinho-vazio">
                         Seu carrinho está vazio.
@@ -879,54 +990,84 @@
                 `;
 
                 totalCarrinho.textContent = "0,00";
+
                 atualizarQuantidades();
+
                 return;
+
             }
 
             let total = 0;
 
             carrinho.forEach(produto => {
-                const subtotal = produto.preco * produto.quantidade;
+
+                const subtotal =
+                    produto.preco * produto.quantidade;
 
                 total += subtotal;
 
-                const item = document.createElement("div");
+                const item =
+                    document.createElement("div");
 
                 item.className = "item-carrinho";
 
                 item.innerHTML = `
+
                     <div>
-                        <strong>${produto.nome}</strong>
+
+                        <strong>
+                            ${produto.nome}
+                        </strong>
+
                         <br>
+
                         ${produto.quantidade} unidade(s)
+
                         <br>
-                        R$ ${subtotal.toFixed(2).replace(".", ",")}
+
+                        R$ ${subtotal
+                            .toFixed(2)
+                            .replace(".", ",")}
+
                     </div>
 
                     <div class="item-controles">
-                        <button onclick="diminuirQuantidade('${produto.nome}')">
+
+                        <button
+                            onclick="diminuirQuantidade('${produto.nome}')"
+                            aria-label="Diminuir quantidade"
+                        >
                             −
                         </button>
 
-                        <span>${produto.quantidade}</span>
+                        <span>
+                            ${produto.quantidade}
+                        </span>
 
-                        <button onclick="aumentarQuantidade('${produto.nome}')">
+                        <button
+                            onclick="aumentarQuantidade('${produto.nome}')"
+                            aria-label="Aumentar quantidade"
+                        >
                             +
                         </button>
+
                     </div>
+
                 `;
 
                 listaCarrinho.appendChild(item);
+
             });
 
-            totalCarrinho.textContent = total
-                .toFixed(2)
-                .replace(".", ",");
+            totalCarrinho.textContent =
+                total.toFixed(2).replace(".", ",");
 
             atualizarQuantidades();
+
         }
 
         function atualizarQuantidades() {
+
             const produtos = [
                 "Classic Burger",
                 "Cheese Bacon",
@@ -937,35 +1078,68 @@
             ];
 
             produtos.forEach(nome => {
+
                 const produto = carrinho.find(
                     item => item.nome === nome
                 );
 
-                const id = "quantidade-" + nome.replaceAll(" ", "");
+                const id =
+                    "quantidade-" + nome.replaceAll(" ", "");
 
-                const elemento = document.getElementById(id);
+                const elemento =
+                    document.getElementById(id);
 
                 if (elemento) {
+
                     elemento.textContent = produto
                         ? produto.quantidade + " no carrinho"
                         : "0 no carrinho";
+
                 }
+
             });
+
         }
 
         function pedirPeloWhatsApp() {
+
             if (carrinho.length === 0) {
-                alert("Adicione pelo menos um produto ao carrinho.");
+
+                alert(
+                    "Adicione pelo menos um produto ao carrinho."
+                );
+
                 return;
+
+            }
+
+            const pagamento =
+                document.getElementById("pagamento").value;
+
+            const observacoes =
+                document.getElementById("observacoes").value.trim();
+
+            if (pagamento === "") {
+
+                alert(
+                    "Escolha uma forma de pagamento antes de continuar."
+                );
+
+                document.getElementById("pagamento").focus();
+
+                return;
+
             }
 
             let mensagem =
-                "Olá! Quero fazer um pedido na Mordida Burger.%0A%0A";
+                "Olá! Quero fazer um pedido na Mordida Burger.\n\n";
 
             let total = 0;
 
             carrinho.forEach(produto => {
-                const subtotal = produto.preco * produto.quantidade;
+
+                const subtotal =
+                    produto.preco * produto.quantidade;
 
                 total += subtotal;
 
@@ -975,26 +1149,41 @@
                     produto.nome +
                     " - R$ " +
                     subtotal.toFixed(2).replace(".", ",") +
-                    "%0A";
+                    "\n";
+
             });
 
             mensagem +=
-                "%0ATotal do pedido: R$ " +
+                "\nTotal do pedido: R$ " +
                 total.toFixed(2).replace(".", ",") +
-                "%0A%0A";
+                "\n";
 
             mensagem +=
-                "Nome:%0A" +
-                "Endereço:%0A" +
-                "Forma de pagamento:%0A";
+                "Forma de pagamento: " +
+                pagamento +
+                "\n";
+
+            if (observacoes !== "") {
+
+                mensagem +=
+                    "Observações: " +
+                    observacoes +
+                    "\n";
+
+            }
+
+            mensagem +=
+                "\nNome:\n" +
+                "Endereço:\n";
 
             const linkWhatsApp =
                 "https://wa.me/" +
                 numeroWhatsApp +
                 "?text=" +
-                mensagem;
+                encodeURIComponent(mensagem);
 
             window.open(linkWhatsApp, "_blank");
+
         }
     </script>
 
